@@ -13,7 +13,7 @@ export default function AgendaList() {
 
         {/* Display the GIF */}
         <div className="text-center mb-4">
-<img src="/image/marriage.gif" style={{ maxWidth: "120px", height: "auto" }} />
+<img src="./image/marriage.gif" style={{ maxWidth: "120px", height: "auto" }} />
         </div>
 
         <ul className="list-group list-group-flush">
