@@ -12,8 +12,7 @@ export default function Carpark() {
 
       <div className="ratio ratio-16x9 mx-auto mt-4 rounded-lg overflow-hidden">
         <iframe
-          src="https://maps.app.goo.gl/jARzuqZPJaJjqYz19"
-          width="800"
+src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4080.9893115954746!2d102.6734!3d18.005202799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3124677dd50c8f19%3A0xcf1794ec3772d10a!2sXamkhe%20Primary%20School!5e1!3m2!1sen!2sla!4v1755618191164!5m2!1sen!2sla"          width="800"
           height="450"
           style={{ border: 0 }}
           allowFullScreen
