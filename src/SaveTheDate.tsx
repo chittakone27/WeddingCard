@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-const WEDDING_DATE = new Date('2025-12-20T00:00:00');
+export const WEDDING_DATE = new Date('2025-12-20T00:00:00'); // <-- export it
 
 function calculateTimeLeft() {
   const now = new Date();
