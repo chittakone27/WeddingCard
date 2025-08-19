@@ -3,7 +3,7 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 export default function Carpark() {
   return (
     <div className="text-center mb-5" style={{ fontFamily: "boonhome" }}>
-      <h1 className="mb-3 text-xl font-semibold text-gray-800">ສະຖານທີ່ຈັດງານ</h1>
+      <h1 className="mb-3 text-xl font-semibold text-gray-800">ບ່ອນຈອດລົດ</h1>
       <p className="text-gray-600">
         Grand Ballroom, Luxury Hotel
         <br />
@@ -50,8 +50,40 @@ export default function Carpark() {
           Open in Google Maps
         </button>
       </div>
+<p
+  style={{
+    marginTop: "4rem",
+    fontSize: "0.95rem",
+    color: "#6b7280",        // soft gray
+    fontStyle: "italic",
+    lineHeight: 1.6
+  }}
+>
+  ຫຼັງຈາກບັນດາທ່ານຈອດລົດ ທີ່ບ່ອນຈອດລົດແລ້ວ
 
-     
+</p>
+<p
+  style={{
+    marginTop: "1rem",
+    fontSize: "0.95rem",
+    color: "#6b7280",        // soft gray
+    fontStyle: "italic",
+    lineHeight: 1.6
+  }}
+>
+ ພວກເຮົາທັງ 2 ໄດ້ກະກຽມລົດ KokKok
+</p>
+<p
+  style={{
+    marginTop: "1rem",
+    fontSize: "0.95rem",
+    color: "#6b7280",        // soft gray
+    fontStyle: "italic",
+    lineHeight: 1.6
+  }}
+>
+ເພື່ອໃຫ້ບໍລິການນຳສົ່ງທຸກທ່ານເຂົ້າໜ້າງານ.
+</p>
     </div>
   );
 }

@@ -5,8 +5,8 @@ import ImageCarousel from './ImageCarousel';
 import AgendaList from './AgendaList';
 import SaveTheDate from './SaveTheDate';
 import VideoMessage from './VideoMessage';
-import Location from './Location';
 
+import LocationTabs from './Locationtabs';
 export default function WeddingCard() {
   return (
     <div className="container py-5">
@@ -16,7 +16,8 @@ export default function WeddingCard() {
       <SaveTheDate />
 
       <AgendaList />
-      <Location />
+      <LocationTabs/>
+     
       <VideoMessage />
     </div>
   );
