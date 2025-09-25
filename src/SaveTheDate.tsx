@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 export const WEDDING_DATE = new Date('2025-12-20T00:00:00'); // <-- export it
 
 function calculateTimeLeft() {
@@ -29,7 +30,13 @@ export default function SaveTheDate() {
   }, []);
 
   return (
-    <div className="text-center mb-5">
+    <motion.div
+      className="text-center mb-5"
+      initial={{ opacity: 0, y: 50 }}        // start invisible, slightly below
+      whileInView={{ opacity: 1, y: 0 }}    // animate when in viewport
+      viewport={{ once: false, amount: 0.3 }} // trigger when 30% visible
+      transition={{ duration: 0.8, ease: 'easeOut' }}
+    >
       <h2 className="mb-4">Save the Date!</h2>
 
       {/* Calendar-style card */}
@@ -57,7 +64,7 @@ export default function SaveTheDate() {
       ) : (
         <p className="mt-4 text-success fw-bold">It's the big day! 🎉</p>
       )}
-    </div>
+    </motion.div>
   );
 }
 

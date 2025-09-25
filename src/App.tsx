@@ -7,18 +7,21 @@ import AgendaList from './AgendaList';
 import SaveTheDate from './SaveTheDate';
 import VideoMessage from './VideoMessage';
 import LocationTabs from './Locationtabs';
-import LanguageSwitcher from './LanguageSwitcher'; // ✅ add switcher
+import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from "./LanguageContext";
-import { translations } from "./translations"; // ✅ translation strings
-
+import { translations } from "./translations";
+import WeddingGuestbook from "./coments";
+import Snowflakes from "./Snowflakes";
+import './App.css';
+import Profile from "./profile";
 export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
-  const { language } = useLanguage(); // ✅ get current language
+  const { language } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 3000); // 3 seconds delay
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -27,8 +30,8 @@ export default function WeddingCard() {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100 flex-column bg-white">
         <img
-          src="/image/invitation.gif"
-          style={{ maxWidth: "300px", height: "auto" }}
+          src={`${import.meta.env.BASE_URL}image/invitation.gif`}
+          style={{ maxWidth: "500px", height: "auto" }}
           alt="Wedding Animation"
         />
       </div>
@@ -36,19 +39,25 @@ export default function WeddingCard() {
   }
 
   return (
-    <div className="container py-5">
-      {/* ✅ language switcher on top */}
-      <LanguageSwitcher />
+    <div className="py-5 position-relative">
+      {/* Snowflakes stay behind */}
+      <Snowflakes />
 
-      <h1 className="text-center display-4 mb-5">
-        {translations[language].invitationTitle}
-      </h1>
-
-      <ImageCarousel />
-      <SaveTheDate />
-      <AgendaList />
-      <LocationTabs />
-      <VideoMessage />
+      {/* ❄ Freeze content on top */}
+      <div className="position-relative" style={{ zIndex: 10 }}>
+        <LanguageSwitcher />
+        <h1 className="display-4 mb-5 laofont">
+          {translations[language].invitationTitle}
+        </h1>
+      
+        <ImageCarousel />
+        <Profile />
+        <SaveTheDate />
+        <AgendaList />
+        <LocationTabs />
+        <VideoMessage />
+        <WeddingGuestbook />
+      </div>
     </div>
   );
 }

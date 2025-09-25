@@ -11,7 +11,7 @@ export const translations = {
     completed: "Completed",
   },
   lao: {
-    invitationTitle: "ຍິນດີຕອນຮັບ ແຂກຜູ້ມີກຽດທຸກທ່ານ!",
+    invitationTitle: "ຍິນດີຕອນຮັບ!",
     agenda: "ວາລະງານ",
     weddingCeremony: "ພິທີງານແຕ່ງ",
     lunchReception: "ງານເລີ້ມຕ້ອນຕອນທ່ຽງ",

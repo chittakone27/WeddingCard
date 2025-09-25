@@ -52,8 +52,7 @@ export default function LocationTabs() {
 
       {/* Tab Content */}
       <div
-        className="card border-0 shadow-sm p-4"
-        style={{ borderRadius: "1rem" }}
+      
       >
         {activeTab === "carpark" && <Carpark />}
         {activeTab === "wedding" && <WeddingLocation />}

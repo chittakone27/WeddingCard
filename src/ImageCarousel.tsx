@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
-
+import { useEffect, useRef, useState } from 'react';
+import './App.css'; // CSS สำหรับ animation
 declare global {
   interface Window {
     bootstrap: any;
@@ -14,6 +14,13 @@ const images = [
 
 export default function ImageCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // แสดง animation เมื่อ page โหลด
+    const timer = setTimeout(() => setVisible(true), 100); // delay นิดหน่อย
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     if (carouselRef.current && window.bootstrap) {
@@ -29,12 +36,14 @@ export default function ImageCarousel() {
 
   return (
     <div
-      id="weddingCarousel"
-      className="carousel slide mb-5"
-      style={{ maxWidth: 700, margin: '0 auto' }}
-      ref={carouselRef}
-      data-bs-ride="carousel"
-    >
+  id="weddingCarousel"
+  className={`carousel slide mb-5 ${visible ? "fade-slide-in" : "fade-slide-out"}`}
+  style={{ maxWidth: "100%",
+  maxHeight: "100%", margin: "0 auto", transition: "all 1s ease" }}
+  ref={carouselRef}
+  data-bs-ride="carousel"
+>
+
       <div className="carousel-inner" style={{ height: 400 }}>
         {images.map((src, idx) => (
           <div

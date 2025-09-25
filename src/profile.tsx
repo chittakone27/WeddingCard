@@ -1,0 +1,113 @@
+import { useRef, useEffect, useState } from "react";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
+
+export default function Profile() {
+  const groomRef = useRef(null);
+  const brideRef = useRef(null);
+  const [groomVisible, setGroomVisible] = useState(false);
+  const [brideVisible, setBrideVisible] = useState(false);
+
+  useEffect(() => {
+    const observerOptions = { threshold: 0.3 };
+
+    const groomObserver = new IntersectionObserver(([entry]) => {
+      setGroomVisible(entry.isIntersecting);
+    }, observerOptions);
+
+    const brideObserver = new IntersectionObserver(([entry]) => {
+      setBrideVisible(entry.isIntersecting);
+    }, observerOptions);
+
+    if (groomRef.current) groomObserver.observe(groomRef.current);
+    if (brideRef.current) brideObserver.observe(brideRef.current);
+
+    return () => {
+      groomObserver.disconnect();
+      brideObserver.disconnect();
+    };
+  }, []);
+
+  return (
+    <div className="container my-5" style={{ maxWidth: '100%' }}>
+
+      {/* Profiles and Heart */}
+      <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+
+        {/* Groom */}
+        <div
+          ref={groomRef}
+          className={`profile-card ${groomVisible ? "spin-in" : "spin-hidden"}`}
+          style={{
+            backgroundColor: 'rgba(48, 48, 48, 1)',
+            padding: '20px',
+            borderRadius: '10px',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+            flex: 1,
+            minWidth: '250px',
+            maxWidth: '400px',
+            textAlign: 'center',
+          }}
+        >
+          <h3 className="mb-3" style={{color:"whitesmoke"}}>Groom</h3>
+          <div className="profile-image mx-auto mb-3">
+            <img src="./image/groom.jpeg" alt="Groom" />
+          </div>
+          <h6 style={{color:"whitesmoke"}}>CHITTAKONE THAMMARONGSAD</h6>
+          <div className="d-flex justify-content-center gap-3">
+            <a href="https://www.facebook.com/chittakone.thammarongsad" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FacebookIcon fontSize="large" />
+            </a>
+            <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <InstagramIcon fontSize="large" />
+            </a>
+          </div>
+        </div>
+
+        {/* Heart */}
+        <div className="text-center my-3 my-md-0">
+          <img
+            src="./image/heart.gif"
+            alt="Heart"
+            style={{ width: "60px", height: "60px" }}
+            className="heart-icon"
+          />
+        </div>
+
+        {/* Bride */}
+        <div
+          ref={brideRef}
+          className={`profile-card ${brideVisible ? "spin-in" : "spin-hidden"}`}
+          style={{
+            backgroundColor: 'rgba(48, 48, 48, 1)',
+            padding: '20px',
+            borderRadius: '10px',
+            boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+            flex: 1,
+            minWidth: '250px',
+            maxWidth: '400px',
+            textAlign: 'center',
+          }}
+        >
+          <h3 className="mb-3" style={{color:"whitesmoke"}}>Bride</h3>
+          <div className="profile-image mx-auto mb-3">
+            <img src="./image/bride.png" alt="Bride" />
+          </div>
+        <h6 style={{color:"whitesmoke"}}>SITDAVANH PHONSOULIKONE</h6>
+
+          <div className="d-flex justify-content-center gap-3">
+            <a href="https://facebook.com/yourbrideprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <FacebookIcon fontSize="large" />
+            </a>
+            <a href="https://instagram.com/yourbrideprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <InstagramIcon fontSize="large" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}

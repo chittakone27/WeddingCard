@@ -2,7 +2,8 @@ import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 
 export default function Carpark() {
   return (
-    <div className="text-center mb-5" style={{ fontFamily: "boonhome" }}>
+    <div className="text-center mb-5" style={{ fontFamily: "boonhome"
+}}>
       <h1 className="mb-3 text-xl font-semibold text-gray-800">ສະຖານທີ່ຈັດງານ</h1>
       <p className="text-gray-600">
         Grand Ballroom, Luxury Hotel
