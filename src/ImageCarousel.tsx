@@ -35,17 +35,17 @@ export default function ImageCarousel() {
 }, []);
 
   return (
-    <div
-      className="container my-5"
-      style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
-      }}
-    >
+    // <div
+    //   className="container my-5"
+    //   style={{
+    //     backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+    //     backgroundSize: 'cover',
+    //     backgroundPosition: 'center',
+    //     backgroundRepeat: 'no-repeat',
+    //     padding: '20px',
+    //     borderRadius: '10px',
+    //   }}
+    // >
 <div
   id="weddingCarousel"
   className={`carousel slide ${visible ? "fade-slide-in" : "fade-slide-out"}`}
@@ -89,7 +89,7 @@ style={{ maxWidth: "100%", height: "400px" , color:"black"}}
       <span className="visually-hidden">Next</span>
     </button>
   </div>
-  </div>
+  // </div>
 );
 
 }

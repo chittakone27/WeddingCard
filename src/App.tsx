@@ -40,11 +40,22 @@ export default function WeddingCard() {
 
   return (
     <div>
+      
     <div className="py-5 position-relative">
     {/* <div> */}
       {/* Snowflakes stay behind */}
       <Snowflakes />
-
+    <div
+      className="container my-5"
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
+    >
       {/* ❄ Freeze content on top */}
       <div className="position-relative" style={{ zIndex: 10 }}>
         <LanguageSwitcher />
@@ -54,6 +65,7 @@ export default function WeddingCard() {
             </div>
 
         <ImageCarousel />
+        </div>
         <Profile />
         <SaveTheDate />
         <AgendaList />
