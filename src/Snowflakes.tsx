@@ -19,7 +19,7 @@ export default function Snowflakes() {
     "./image/snow3.gif",
   ];
  // Maximum number of visible flakes
-  const maxVisible = 20;
+  const maxVisible = 25;
   let nextId = 0;
 
   useEffect(() => {

@@ -5,9 +5,8 @@ import "./App.css";
 export default function Carpark() {
   return (
     <div
-      className="text-center mb-5card border-0 shadow-sm p-4"
         // style={{ borderRadius: "1rem" }}
-      style={{ fontFamily: "boonhome",padding: '40px 20px' ,borderRadius: "1rem" }}
+      style={{ fontFamily: "boonhome",borderRadius: "1rem",maxWidth: '100%', minWidth: '50px'}}
     >
       {/* Magic Handwriting H1 */}
       <h1 className="magic-title mb-3">

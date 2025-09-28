@@ -12,7 +12,7 @@ import { useLanguage } from "./LanguageContext";
 import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
 import Snowflakes from "./Snowflakes";
-import './App.css';
+// import './App.css';
 import Profile from "./profile";
 export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
@@ -31,7 +31,7 @@ export default function WeddingCard() {
       <div className="d-flex justify-content-center align-items-center vh-100 flex-column bg-white">
         <img
           src={`${import.meta.env.BASE_URL}image/invitation.gif`}
-          style={{ maxWidth: "500px", height: "auto" }}
+          style={{ maxWidth: "300px", height: "200px" }}
           alt="Wedding Animation"
         />
       </div>
@@ -39,25 +39,29 @@ export default function WeddingCard() {
   }
 
   return (
+    <div>
     <div className="py-5 position-relative">
+    {/* <div> */}
       {/* Snowflakes stay behind */}
       <Snowflakes />
 
       {/* ❄ Freeze content on top */}
       <div className="position-relative" style={{ zIndex: 10 }}>
         <LanguageSwitcher />
-        <h1 className="display-4 mb-5 laofont">
+        <h1 className="display-4 mb-5">
           {translations[language].invitationTitle}
         </h1>
-      
+            </div>
+
         <ImageCarousel />
         <Profile />
         <SaveTheDate />
         <AgendaList />
+            </div>
+
         <LocationTabs />
         <VideoMessage />
         <WeddingGuestbook />
-      </div>
-    </div>
+        </div>
   );
 }

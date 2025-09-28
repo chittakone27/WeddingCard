@@ -65,7 +65,20 @@ useEffect(() => {
 
 
   return (
-    <div className="card mb-5" ref={containerRef}>
+    <div
+      className="container my-5"
+      ref={containerRef}
+
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
+    >
+    {/* <div className="card mb-5" ref={containerRef} style={{minWidth: '300px', maxWidth: '600px', margin: '0 auto', backgroundColor: 'rgba(255, 255, 255, 0.8)'}}> */}
       <div className="card-body">
         <h2 className="card-title text-center mb-4">
           {translations[language].agenda}

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import './App.css'; // CSS สำหรับ animation
+// import './App.css'; // CSS สำหรับ animation
 declare global {
   interface Window {
     bootstrap: any;
@@ -22,63 +22,74 @@ export default function ImageCarousel() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    if (carouselRef.current && window.bootstrap) {
-      const carousel = new window.bootstrap.Carousel(carouselRef.current, {
-        interval: 3000,
-        ride: 'carousel',
-        pause: 'hover',
-        wrap: true,
-      });
-      carousel.cycle();
-    }
-  }, []);
+ useEffect(() => {
+  if (carouselRef.current && window.bootstrap) {
+    const carousel = new window.bootstrap.Carousel(carouselRef.current, {
+      interval: 500, // 1 second
+      ride: 'carousel',
+      pause: false,   // don't stop on hover
+      wrap: true,
+    });
+    carousel.cycle();
+  }
+}, []);
 
   return (
     <div
+      className="container my-5"
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
+    >
+<div
   id="weddingCarousel"
-  className={`carousel slide mb-5 ${visible ? "fade-slide-in" : "fade-slide-out"}`}
-  style={{ maxWidth: "100%",
-  maxHeight: "100%", margin: "0 auto", transition: "all 1s ease" }}
+  className={`carousel slide ${visible ? "fade-slide-in" : "fade-slide-out"}`}
+
+style={{ maxWidth: "100%", height: "400px" , color:"black"}}
   ref={carouselRef}
   data-bs-ride="carousel"
 >
-
-      <div className="carousel-inner" style={{ height: 400 }}>
-        {images.map((src, idx) => (
-          <div
-            key={idx}
-            className={`carousel-item ${idx === 0 ? 'active' : ''}`}
-            style={{ height: '100%' }}
-          >
-            <img
-              src={src}
-              className="d-block w-100 rounded shadow"
-              alt={`Slide ${idx + 1}`}
-              style={{ height: '100%', objectFit: 'cover' }}
-            />
-          </div>
-        ))}
+  <div className="carousel-inner" style={{ height: "100%" }}>
+    {images.map((src, idx) => (
+      <div
+        key={idx}
+        className={`carousel-item ${idx === 0 ? "active" : ""}`}
+        style={{ height: "100%",width: "100%", }}
+      >
+        <img
+          src={src}
+          alt={`Slide ${idx + 1}`}
+          style={{ height: "100%",  objectFit: "cover" }}
+        />
       </div>
+    ))}
+  </div>
 
-      <button
-        className="carousel-control-prev"
-        type="button"
-        data-bs-target="#weddingCarousel"
-        data-bs-slide="prev"
-      >
-        <span className="carousel-control-prev-icon" aria-hidden="true" />
-        <span className="visually-hidden">Previous</span>
-      </button>
-      <button
-        className="carousel-control-next"
-        type="button"
-        data-bs-target="#weddingCarousel"
-        data-bs-slide="next"
-      >
-        <span className="carousel-control-next-icon" aria-hidden="true" />
-        <span className="visually-hidden">Next</span>
-      </button>
-    </div>
-  );
+    <button
+      className="carousel-control-prev"
+      type="button"
+      data-bs-target="#weddingCarousel"
+      data-bs-slide="prev"
+    >
+      <span className="carousel-control-prev-icon" aria-hidden="true" />
+      <span className="visually-hidden">Previous</span>
+    </button>
+    <button
+      className="carousel-control-next"
+      type="button"
+      data-bs-target="#weddingCarousel"
+      data-bs-slide="next"
+    >
+      <span className="carousel-control-next-icon" aria-hidden="true" />
+      <span className="visually-hidden">Next</span>
+    </button>
+  </div>
+  </div>
+);
+
 }

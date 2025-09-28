@@ -30,41 +30,53 @@ export default function SaveTheDate() {
   }, []);
 
   return (
-    <motion.div
-      className="text-center mb-5"
-      initial={{ opacity: 0, y: 50 }}        // start invisible, slightly below
-      whileInView={{ opacity: 1, y: 0 }}    // animate when in viewport
-      viewport={{ once: false, amount: 0.3 }} // trigger when 30% visible
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+    <div
+      className="container my-5"
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 background image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
     >
-      <h2 className="mb-4">Save the Date!</h2>
+      <motion.div
+        className="text-center mb-5"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <h2 className="mb-4">Save the Date!</h2>
 
-      {/* Calendar-style card */}
-      <div className="bg-light border rounded shadow d-inline-block p-4 mb-4">
-        <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: '0.9rem' }}>
-          December
-        </div>
-        <div className="display-4 fw-bold" style={{ fontSize: '4rem', lineHeight: '1' }}>
-          20
-        </div>
-        <div className="text-muted">Saturday, 2025</div>
-      </div>
-
-      {/* Countdown Timer */}
-      {timeLeft ? (
-        <div className="mt-4">
-          <h5 className="mb-3">Countdown to the Big Day</h5>
-          <div className="d-flex justify-content-center gap-3 flex-wrap">
-            <CountdownBox label="Days" value={timeLeft.days} />
-            <CountdownBox label="Hours" value={timeLeft.hours} />
-            <CountdownBox label="Minutes" value={timeLeft.minutes} />
-            <CountdownBox label="Seconds" value={timeLeft.seconds} />
+        {/* Calendar-style card */}
+        <div className="bg-light border rounded shadow d-inline-block p-4 mb-4">
+          <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: '0.9rem' }}>
+            December
           </div>
+          <div className="display-4 fw-bold" style={{ fontSize: '4rem', lineHeight: '1' }}>
+            20
+          </div>
+          <div className="text-muted">Saturday, 2025</div>
         </div>
-      ) : (
-        <p className="mt-4 text-success fw-bold">It's the big day! 🎉</p>
-      )}
-    </motion.div>
+
+        {/* Countdown Timer */}
+        {timeLeft ? (
+          <div className="mt-4">
+            <h5 className="mb-3">Countdown to the Big Day</h5>
+            <div className="d-flex justify-content-center gap-3 flex-wrap">
+              <CountdownBox label="Days" value={timeLeft.days} />
+              <CountdownBox label="Hours" value={timeLeft.hours} />
+              <CountdownBox label="Minutes" value={timeLeft.minutes} />
+              <CountdownBox label="Seconds" value={timeLeft.seconds} />
+            </div>
+          </div>
+        ) : (
+          <p className="mt-4 text-success fw-bold">It's the big day! 🎉</p>
+        )}
+      </motion.div>
+    </div>
   );
 }
 

@@ -31,8 +31,17 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className="container my-5" style={{ maxWidth: '100%' }}>
-
+<div
+      className="container my-5"
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
+    >
       {/* Profiles and Heart */}
       <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
 
@@ -46,28 +55,28 @@ export default function Profile() {
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
             flex: 1,
-            minWidth: '250px',
-            maxWidth: '400px',
+            minWidth: '367px',
+            maxWidth: '1000px',
             textAlign: 'center',
           }}
         >
           <h3 className="mb-3" style={{color:"whitesmoke"}}>Groom</h3>
-          <div className="profile-image mx-auto mb-3">
+          <div className="profile-image mx-auto mb-2">
             <img src="./image/groom.jpeg" alt="Groom" />
           </div>
           <h6 style={{color:"whitesmoke"}}>CHITTAKONE THAMMARONGSAD</h6>
           <div className="d-flex justify-content-center gap-3">
             <a href="https://www.facebook.com/chittakone.thammarongsad" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FacebookIcon fontSize="large" />
+              <FacebookIcon fontSize="small" />
             </a>
             <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <InstagramIcon fontSize="large" />
+              <InstagramIcon fontSize="small" />
             </a>
           </div>
         </div>
 
         {/* Heart */}
-        <div className="text-center my-3 my-md-0">
+        <div className="text-center">
           <img
             src="./image/heart.gif"
             alt="Heart"
@@ -86,23 +95,23 @@ export default function Profile() {
             borderRadius: '10px',
             boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
             flex: 1,
-            minWidth: '250px',
-            maxWidth: '400px',
+            minWidth: '367px',
+            maxWidth: '1000px',
             textAlign: 'center',
           }}
         >
           <h3 className="mb-3" style={{color:"whitesmoke"}}>Bride</h3>
-          <div className="profile-image mx-auto mb-3">
+          <div className="profile-image mx-auto mb-2">
             <img src="./image/bride.png" alt="Bride" />
           </div>
         <h6 style={{color:"whitesmoke"}}>SITDAVANH PHONSOULIKONE</h6>
 
           <div className="d-flex justify-content-center gap-3">
             <a href="https://facebook.com/yourbrideprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <FacebookIcon fontSize="large" />
+              <FacebookIcon fontSize="small" />
             </a>
             <a href="https://instagram.com/yourbrideprofile" target="_blank" rel="noopener noreferrer" className="social-icon">
-              <InstagramIcon fontSize="large" />
+              <InstagramIcon fontSize="small" />
             </a>
           </div>
         </div>
