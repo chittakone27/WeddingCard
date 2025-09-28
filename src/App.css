@@ -193,3 +193,15 @@
   50% { transform: scale(1); }
   75% { transform: scale(1.2); }
 }
+.social-icon {
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+.social-icon.facebook {
+  color: #1877F2; /* Facebook blue */
+}
+
+.social-icon.instagram {
+  color: #E4405F; /* Instagram pink */
+}

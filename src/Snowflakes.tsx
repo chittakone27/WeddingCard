@@ -19,7 +19,7 @@ export default function Snowflakes() {
     "./image/snow3.gif",
   ];
  // Maximum number of visible flakes
-  const maxVisible = 25;
+  const maxVisible = 5;
   let nextId = 0;
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function Snowflakes() {
         const newFlake: Flake = {
           id: nextId++,
           top: `${Math.random() * 100}%`,  // top max 15%
-          left: `${Math.random() * 100}%`,
+          left: `${Math.random() * 90}%`,
           size: `${15 + Math.random() * 35}px`,
           opacity: 0,
           src: snowImages[Math.floor(Math.random() * snowImages.length)]

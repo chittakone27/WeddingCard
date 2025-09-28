@@ -12,6 +12,7 @@ import { useLanguage } from "./LanguageContext";
 import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
 import Snowflakes from "./Snowflakes";
+import Cover from "./cover";
 // import './App.css';
 import Profile from "./profile";
 export default function WeddingCard() {
@@ -34,46 +35,45 @@ export default function WeddingCard() {
           style={{ maxWidth: "300px", height: "200px" }}
           alt="Wedding Animation"
         />
+
+
       </div>
     );
   }
 
   return (
-    <div>
-      
-    <div className="py-5 position-relative">
-    {/* <div> */}
-      {/* Snowflakes stay behind */}
+  <div>
+<div className="position-relative" style={{ width: "100%", minHeight: "100vh", overflow: "hidden" }}>
+  {/* Background video */}
+  <Cover />
+
+  {/* Snowflakes stay behind but above video */}
+  <Snowflakes />
+
+  {/* Foreground content */}
+  <div className="container py-5 position-relative" style={{ zIndex: 10 }}>
+    <LanguageSwitcher />
+    <h1 className="display-4 mb-5">
+      {translations[language].invitationTitle}
+    </h1>
+    {/* <ImageCarousel /> */}
+  </div>
+</div>
+
+<div     className="position-relative"
+>
       <Snowflakes />
-    <div
-      className="container my-5"
-      style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
-      }}
-    >
-      {/* ❄ Freeze content on top */}
-      <div className="position-relative" style={{ zIndex: 10 }}>
-        <LanguageSwitcher />
-        <h1 className="display-4 mb-5">
-          {translations[language].invitationTitle}
-        </h1>
-            </div>
 
-        <ImageCarousel />
-        </div>
-        <Profile />
-        <SaveTheDate />
-        <AgendaList />
-            </div>
+  {/* Other sections */}
+  <Profile />
+  <SaveTheDate />
+  <AgendaList />
+  </div>
 
-        <LocationTabs />
-        <VideoMessage />
-        <WeddingGuestbook />
-        </div>
+  <LocationTabs />
+  <VideoMessage />
+  <WeddingGuestbook />
+</div>
+
   );
 }
