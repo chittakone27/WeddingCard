@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-import ImageCarousel from './ImageCarousel';
+// import ImageCarousel from './ImageCarousel';
 import AgendaList from './AgendaList';
 import SaveTheDate from './SaveTheDate';
 import VideoMessage from './VideoMessage';
