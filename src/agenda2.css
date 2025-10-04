@@ -1,21 +1,13 @@
-@keyframes slideInLeft {
-  0% {
-    transform: translateX(-100%) translateY(90px);
-    opacity: 0;
+/* Stack image above text on small screens */
+@media (max-width: 768px) {
+  .timeline-content {
+    position: static !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
   }
-  100% {
-    transform: translateX(0) translateY(90px);
-    opacity: 1;
-  }
-}
 
-@keyframes slideInRight {
-  0% {
-    transform: translateX(100%) translateY(90px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0) translateY(90px);
-    opacity: 1;
+  .timeline-item {
+    flex-direction: column !important;
   }
 }
