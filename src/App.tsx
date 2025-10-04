@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Agenda2 from "./agenda2";
 // import ImageCarousel from './ImageCarousel';
-import AgendaList from './AgendaList';
 import SaveTheDate from './SaveTheDate';
 import VideoMessage from './VideoMessage';
 import LocationTabs from './Locationtabs';
@@ -67,7 +66,6 @@ export default function WeddingCard() {
   {/* Other sections */}
   <Profile />
   <SaveTheDate />
-  {/* <AgendaList /> */}
     <Agenda2 />
 
   </div>
