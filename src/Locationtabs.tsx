@@ -6,15 +6,16 @@ export default function LocationTabs() {
   const [activeTab, setActiveTab] = useState("carpark");
 
   return (
-      <div
-      className="container my-5"
+    <div
       style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
+        backgroundImage: 'url("./image/background.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        position: "relative",
+        overflow: "hidden",
+        paddingTop: "15.5%",
       }}
     >
     <div className="text-center mb-10" style={{ fontFamily: "boonhome" }}>

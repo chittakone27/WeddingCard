@@ -64,7 +64,7 @@ useEffect(() => {
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "150px",
+        // paddingTop: "15.5%",
       }}
     >
       <h1
@@ -72,6 +72,7 @@ useEffect(() => {
           textAlign: "center",
           color: "black",
           fontSize: "2.5rem",
+        paddingTop: "15.5%",
         }}
       >
         Wedding Agenda
@@ -81,7 +82,7 @@ useEffect(() => {
       <div
         style={{
           position: "absolute",
-          top: "30%",
+          top: "18%",
           bottom: "10%",
           left: "50%",
           width: "0.5px",
@@ -116,7 +117,7 @@ className={`timeline-item ${item.align}`}
                   position: "absolute",
                   right: `calc(50% + ${distanceFromLine}px)`,
                   textAlign: "center",
-                  transform: "translateY(-80%)",
+                  transform: "translateY(-20%)",
                 }}
               >
                 <div
@@ -156,7 +157,7 @@ className={`timeline-item ${item.align}`}
                   position: "absolute",
                   left: `calc(50% + ${distanceFromLine}px)`,
                   textAlign: "center",
-                                      transform: "translateY(-80%)",
+                  transform: "translateY(-20%)",
 
                 }}
               >

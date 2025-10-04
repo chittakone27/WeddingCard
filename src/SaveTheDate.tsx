@@ -31,14 +31,15 @@ export default function SaveTheDate() {
 
   return (
     <div
-      className="container my-5"
       style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 background image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
+        backgroundImage: 'url("./image/background.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        position: "relative",
+        overflow: "hidden",
+        paddingTop: "220px",
       }}
     >
       <motion.div
