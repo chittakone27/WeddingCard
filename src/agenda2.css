@@ -1,0 +1,23 @@
+.timeline-item {
+  opacity: 0;
+  transform: translateY(90px);
+  transition: transform 1.5s ease-out, opacity 1.5s ease-out; /* slower */
+}
+
+.timeline-item.left.active {
+  transform: translateX(0) translateY(90px);
+  opacity: 1;
+}
+
+.timeline-item.right.active {
+  transform: translateX(0) translateY(90px);
+  opacity: 1;
+}
+
+.timeline-item.left {
+  transform: translateX(-100%) translateY(90px);
+}
+
+.timeline-item.right {
+  transform: translateX(100%) translateY(90px);
+}

@@ -6,6 +6,17 @@ export default function LocationTabs() {
   const [activeTab, setActiveTab] = useState("carpark");
 
   return (
+      <div
+      className="container my-5"
+      style={{
+        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        padding: '20px',
+        borderRadius: '10px',
+      }}
+    >
     <div className="text-center mb-10" style={{ fontFamily: "boonhome" }}>
       {/* Tab Buttons */}
       <div className="d-flex justify-content-center mb-4">
@@ -57,6 +68,7 @@ export default function LocationTabs() {
         {activeTab === "carpark" && <Carpark />}
         {activeTab === "wedding" && <WeddingLocation />}
       </div>
+    </div>
     </div>
   );
 }

@@ -31,19 +31,21 @@ export default function Profile() {
   }, []);
 
   return (
-<div
-      className="container my-5"
+    <div
       style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
+        backgroundImage: 'url("./image/background.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        position: "relative",
+        overflow: "hidden",
+        // paddingTop: "150px",
       }}
     >
       {/* Profiles and Heart */}
-      <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3">
+      <div   style={{ position: "relative", top: "70px" }}
+ className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-3" >
 
         {/* Groom */}
         <div

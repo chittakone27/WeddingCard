@@ -17,7 +17,8 @@ export default function Carpark() {
         Ban Xamkhe, Xaysettha District, Vientiane Capital, Laos
       </p>
 
-      <div className="ratio ratio-16x9 mx-auto mt-4 rounded-lg overflow-hidden">
+      <div className="ratio ratio-16x9 mx-auto mt-4 rounded-lg overflow-hidden"   style={{ maxWidth: "85%"}}  // 👈 controls size
+>
         <img src="./image/carpark.jpg" alt="carpark" className="w-full h-full object-cover"/>
       </div>
 
