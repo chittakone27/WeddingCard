@@ -1,6 +1,8 @@
 export const translations = {
   en: {
     invitationTitle: "You're Invited to Our Wedding!",
+    LocationButton: "Go To Location",
+
     agenda: "Wedding Agenda",
     weddingCeremony: "Wedding Ceremony",
     lunchReception: "Lunch Reception",
@@ -11,7 +13,8 @@ export const translations = {
     completed: "Completed",
   },
   lao: {
-    invitationTitle: "ຍິນດີຕອນຮັບ!",
+    invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
+    LocationButton: "ແຜນທີ່ ສະຖານທີ່ຈັດງານ",
     agenda: "ວາລະງານ",
     weddingCeremony: "ພິທີງານແຕ່ງ",
     lunchReception: "ງານເລີ້ມຕ້ອນຕອນທ່ຽງ",
