@@ -11,9 +11,8 @@ export default function Cover() {
         transform: "translate(-50%, -50%)", // centers the GIF
         zIndex: -1, // keep it behind everything
         height: "100vh",
-        width: "100%",
-        // minWidth: "400px",
-        // maxWidth: "800px",
+        minWidth: "400px",
+        maxWidth: "800px",
       }}
     />
   );

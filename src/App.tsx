@@ -63,8 +63,8 @@ export default function WeddingCard() {
   style={{
     position: "absolute",
     top: "50px",
-    right: "30px",
-    zIndex: 20,
+
+    // zIndex: 20,
     alignItems: "center",
     justifyContent: "center",
     display: "flex",
