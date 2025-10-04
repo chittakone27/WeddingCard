@@ -50,13 +50,46 @@ export default function WeddingCard() {
   <Snowflakes />
 
   {/* Foreground content */}
-  <div className="container py-5 position-relative" style={{ zIndex: 10 }}>
-    <LanguageSwitcher />
-    <h1 className="display-4 mb-5">
-      {translations[language].invitationTitle}
-    </h1>
-    {/* <ImageCarousel /> */}
-  </div>
+<div
+  className="position-relative d-flex justify-content-center align-items-center text-center"
+  style={{
+    zIndex: 10,
+    height: "100vh",
+    color: "white",
+  }}
+>
+  {/* Keep LanguageSwitcher fixed on top */}
+<div
+  style={{
+    position: "absolute",
+    top: "50px",
+    right: "30px",
+    zIndex: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    display: "flex",
+  }}
+>
+  <LanguageSwitcher />
+</div>
+
+
+  {/* Centered title */}
+  <h1
+    className="display-4 mb-7"
+    style={{
+      fontSize: "30px",
+      fontWeight: "bold",
+      textShadow: "2px 2px 8px rgba(0,0,0,0.6)",
+      margin: 0,
+      
+
+    }}
+  >
+    {translations[language].invitationTitle}
+  </h1>
+</div>
+
 </div>
 
 <div     className="position-relative"
