@@ -9,10 +9,11 @@ import LanguageSwitcher from './LanguageSwitcher';
 import { useLanguage } from "./LanguageContext";
 import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
-import WeddingGuestbook2 from "./WeddingGuestbook";
 import Snowflakes from "./Snowflakes";
 import Cover from "./cover";
 import Profile from "./profile";
+import WeddingAlbum from "./WeddingAlbum";
+
 export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
   const { language } = useLanguage();
@@ -76,21 +77,40 @@ export default function WeddingCard() {
         fontWeight: "bold",
         textShadow: "2px 2px 8px rgba(0,0,0,0.6)",
         margin: 0,
-        fontFamily: "phetsarath ot"
+        // fontFamily: "phetsarath ot"
       }}
     >
       {translations[language].invitationTitle}
     </h1>
 
     {/* Button directly under title */}
-    <button
-      onClick={scrollToLocation}
-      className="btn btn-primary mt-4"
-      style={{ zIndex: 20,        fontFamily: "phetsarath ot"
- }}
-    >
-      {translations[language].LocationButton}
-    </button>
+<button
+  onClick={scrollToLocation}
+  className="mt-4"
+  style={{
+    zIndex: 20,
+    color: "white",
+    background: "linear-gradient(135deg, rgba(232, 32, 132, 1), rgba(255, 105, 180, 1))",
+    border: "none",
+    padding: "0.75rem 2rem",
+    borderRadius: "30px",
+    fontWeight: "bold",
+    fontSize: "1rem",
+    boxShadow: "0 4px 15px rgba(232, 32, 132, 0.4)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+  }}
+  onMouseOver={(e) => {
+    e.currentTarget.style.transform = "scale(1.05)";
+    e.currentTarget.style.boxShadow = "0 6px 20px rgba(232, 32, 132, 0.6)";
+  }}
+  onMouseOut={(e) => {
+    e.currentTarget.style.transform = "scale(1)";
+    e.currentTarget.style.boxShadow = "0 4px 15px rgba(232, 32, 132, 0.4)";
+  }}
+>
+  {translations[language].LocationButton}
+</button>
+
   </div>
 </div>
 
@@ -112,7 +132,7 @@ export default function WeddingCard() {
 
       <VideoMessage />
       <WeddingGuestbook />
-      <WeddingGuestbook2 />
+      <WeddingAlbum />
     </div>
   );
 }

@@ -6,7 +6,7 @@ export default function LocationTabs() {
   const [activeTab, setActiveTab] = useState("carpark");
 
   return (
-    <div
+  <div
       style={{
         backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
@@ -15,7 +15,7 @@ export default function LocationTabs() {
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "15.5%",
+        paddingTop: "115px",
       }}
     >
     <div className="text-center mb-10" style={{ fontFamily: "boonhome" }}>
@@ -28,12 +28,12 @@ export default function LocationTabs() {
             style={{
               borderRadius: "20px 0 0 20px",
               backgroundColor:
-                activeTab === "carpark" ? "rgba(0,204,204,1)" : "transparent",
+                activeTab === "carpark" ? "rgba(232, 32, 132, 1)" : "transparent",
               color: activeTab === "carpark" ? "#fff" : "#6c757d",
               border:
                 activeTab === "carpark"
-                  ? "1px solid rgba(0,204,204,1)"
-                  : "1px solid rgba(0,204,204,0.5)",
+                 ? "1px solid rgba(232, 32, 132, 1)"
+                  : "1px solid rgba(255,105,180,0.5)",
               boxShadow:
                 activeTab === "carpark" ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
             }}
@@ -47,14 +47,14 @@ export default function LocationTabs() {
             style={{
               borderRadius: "0 20px 20px 0",
               backgroundColor:
-                activeTab === "wedding" ? "rgba(0,204,204,1)" : "transparent",
+                activeTab === "wedding" ? "rgba(232, 32, 132, 1)" : "transparent",
               color: activeTab === "wedding" ? "#fff" : "#6c757d",
               border:
                 activeTab === "wedding"
-                  ? "1px solid rgba(0,204,204,1)"
-                  : "1px solid rgba(0,204,204,0.5)",
+                   ? "1px solid rgba(232, 32, 132, 1)"
+                  : "1px solid rgba(255,105,180,0.5)",
               boxShadow:
-                activeTab === "wedding" ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
+                activeTab === "wedding" ? "rgba(255,105,180,0.5)" : "none",
             }}
           >
             ສະຖານທີ່ຈັດງານ

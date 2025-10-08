@@ -42,8 +42,8 @@ export default function Profile() {
   <div className="d-flex flex-column flex-md-row justify-content-center align-items-center gap-5">
     {/* Groom */}
     <div
-      ref={groomRef}
-      className={`profile-card ${groomVisible ? "spin-in" : "spin-hidden"}`}
+      // ref={groomRef}
+      // className={`profile-card ${groomVisible ? "spin-in" : "spin-hidden"}`}
       style={{ textAlign: "center" }}
     >
       <h3 className="mb-3" style={{ color: "black" }}>Groom</h3>
@@ -80,8 +80,8 @@ export default function Profile() {
 
     {/* Bride */}
     <div
-      ref={brideRef}
-      className={`profile-card ${brideVisible ? "spin-in" : "spin-hidden"}`}
+      // ref={brideRef}
+      // className={`profile-card ${brideVisible ? "spin-in" : "spin-hidden"}`}
       style={{ textAlign: "center" }}
     >
       <h3 className="mb-3" style={{ color: "black" }}>Bride</h3>

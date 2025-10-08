@@ -1,15 +1,16 @@
 
 export default function VideoMessage() {
   return (
-     <div
-      className="container my-5 text-center"
+      <div
       style={{
-        backgroundImage: 'url("./image/background.png")', // 👈 add your image here
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        padding: '20px',
-        borderRadius: '10px',
+        backgroundImage: 'url("./image/background.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+        position: "relative",
+        overflow: "hidden",
+        paddingTop: "115px",
       }}
     >
      {/* <div className="text-center"> */}

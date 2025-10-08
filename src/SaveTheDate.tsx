@@ -39,7 +39,7 @@ export default function SaveTheDate() {
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "220px",
+        paddingTop: "115px",
       }}
     >
       <motion.div

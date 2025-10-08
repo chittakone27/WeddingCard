@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./Agenda2.css";
+import { motion } from "framer-motion";
 
 interface AgendaItem {
   time: string;
@@ -55,16 +56,20 @@ export default function Agenda2() {
         padding: "120px 0 100px 0",
       }}
     >
-      <h1
-        style={{
-          textAlign: "center",
-          color: "black",
-          fontSize: "2.5rem",
-          marginBottom: "100px",
-        }}
-      >
-        Wedding Agenda
-      </h1>
+ <motion.h1
+      initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      style={{
+        textAlign: "center",
+        color: "black",
+        fontSize: "2.5rem",
+        marginBottom: "100px",
+      }}
+    >
+      Wedding Agenda
+    </motion.h1>
 
       {/* Main Center Line */}
       <div
@@ -100,7 +105,7 @@ export default function Agenda2() {
                   display: "flex",
                   alignItems: "center",
                   position: "absolute",
-                  right: `calc(50% + ${distanceFromLine}px)`,
+                  right: `calc(50% +  ${distanceFromLine}px)`,
                   transform: "translateY(-50%)",
                   gap: "8px",
                 }}
@@ -116,7 +121,7 @@ export default function Agenda2() {
                   }}
                 />
                 {/* Text + Image */}
-                <div style={{ textAlign: "left", maxWidth: "120px" }}>
+                <div style={{ left: "25%", maxWidth: "100px" }}>
                   <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "13px" }}>{item.time}</p>
                   <p style={{ margin: 0, color: "black", fontSize: "13px", wordWrap: "break-word" }}>{item.event}</p>
                 </div>
@@ -164,7 +169,7 @@ export default function Agenda2() {
                     objectFit: "contain",
                   }}
                 />
-                <div style={{ textAlign: "right", maxWidth: "120px" }}>
+                <div style={{ right: "25%", maxWidth: "80px" }}>
                   <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "13px" }}>{item.time}</p>
                   <p style={{ margin: 0, color: "black", fontSize: "13px", wordWrap: "break-word" }}>{item.event}</p>
                 </div>
@@ -179,7 +184,7 @@ export default function Agenda2() {
         {`
           @media (max-width: 768px) {
             .timeline-item div {
-              transform: translateY(-50%) scale(0.9);
+              transform: translateY(5%) scale(0.9);
             }
             h1 {
               font-size: 2rem !important;
@@ -188,7 +193,7 @@ export default function Agenda2() {
 
           @media (max-width: 480px) {
             .timeline-item div {
-              transform: translateY(-50%) scale(0.85);
+              transform: translateY(5%) scale(0.85);
             }
             .timeline-item div p {
               font-size: 12px !important;

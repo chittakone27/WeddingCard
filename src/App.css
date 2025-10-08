@@ -5,6 +5,19 @@
   padding: 0.1rem;
   text-align: center;
 }
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.1); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.1); }
+  70% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
+
+.button-heartbeat {
+  animation: heartbeat 1.5s infinite;
+  transition: transform 0.2s ease;
+}
 
 
 .logo {
