@@ -56,7 +56,7 @@ export default function WeddingCard() {
   <div
     style={{
       position: "absolute",
-      top: "70px",
+      top: "50px",
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -75,7 +75,7 @@ export default function WeddingCard() {
       alt="Wedding Cover"
       className="position-absolute"
       style={{
-        top: "30%",
+        top: "27%",
         left: "50%",
         transform: "translate(-50%, -50%)", // centers the GIF
         zIndex: -1, // keep it behind everything
