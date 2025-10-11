@@ -70,7 +70,20 @@ export default function WeddingCard() {
 
   {/* Centered title */}
   <div style={{transform: "translateY(20%)"}}> 
-    <h1
+        <img
+      src="./image/cover.gif"
+      alt="Wedding Cover"
+      className="position-absolute"
+      style={{
+        top: "30%",
+        left: "50%",
+        transform: "translate(-50%, -50%)", // centers the GIF
+        zIndex: -1, // keep it behind everything
+        minWidth: "200px",
+        maxWidth: "400px",
+      }}
+    />
+    {/* <h1
       className="display-4 "
       style={{
         fontSize: "22px",
@@ -81,12 +94,12 @@ export default function WeddingCard() {
       }}
     >
       {translations[language].invitationTitle}
-    </h1>
+    </h1> */}
 
     {/* Button directly under title */}
 <button
   onClick={scrollToLocation}
-  className="mt-4"
+  // className="mt-1 mb-2"
   style={{
     zIndex: 20,
     color: "white",
@@ -98,6 +111,7 @@ export default function WeddingCard() {
     fontSize: "1rem",
     boxShadow: "0 4px 15px rgba(232, 32, 132, 0.4)",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    marginTop:"230px"
   }}
   onMouseOver={(e) => {
     e.currentTarget.style.transform = "scale(1.05)";
@@ -110,8 +124,19 @@ export default function WeddingCard() {
 >
   {translations[language].LocationButton}
 </button>
+<div style={{marginTop:"42%"}}>
+<p  style={{ display: "flex",  alignItems: "center",
+      justifyContent: "center", color:"black",fontFamily:"open sans", fontSize:"16px", fontWeight:"bold"
+}}
+>{translations[language].DateTime}</p>
+<p  style={{ display: "flex",  alignItems: "center",
+      justifyContent: "center", color:"black",fontFamily:"open sans", fontSize:"16px",
+}}
+>{translations[language].Addrees}</p>
+</div>
 
   </div>
+  
 </div>
 
           

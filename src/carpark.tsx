@@ -32,15 +32,18 @@ export default function Carpark() {
         )
       }
       className="flex items-center justify-center gap-2 px-6 py-2 rounded-full font-medium transition mx-auto button-heartbeat"
-      style={{
-        borderRadius: "20px 20px",
-        border: "1px solid rgba(255,105,180,0.5)",
-        backgroundColor: "rgba(232, 32, 132, 1)",
-        color: "#f7f9fbff",
-        fontWeight: "bold",
-        fontFamily: "boonhome",
-        width: "200px",
-      }}
+     style={{
+    zIndex: 20,
+    color: "white",
+    background: "linear-gradient(135deg, rgba(232, 32, 132, 1), rgba(255, 105, 180, 1))",
+    border: "none",
+    padding: "0.75rem 2rem",
+    borderRadius: "30px",
+    fontWeight: "bold",
+    fontSize: "1rem",
+    boxShadow: "0 4px 15px rgba(232, 32, 132, 0.4)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+  }}
     >
       <FmdGoodOutlinedIcon fontSize="small" />
       Open in Google Maps

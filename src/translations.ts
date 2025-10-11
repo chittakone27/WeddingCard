@@ -1,8 +1,10 @@
+
 export const translations = {
   en: {
     invitationTitle: "You're Invited to Our Wedding!",
     LocationButton: "Go To Location",
-
+    DateTime: "December 20, 2025 | 7 pm",
+    Addrees: "Ban Samkhe, Xaysetha District, Vientiane Capital",
     agenda: "Wedding Agenda",
     weddingCeremony: "Wedding Ceremony",
     lunchReception: "Lunch Reception",
@@ -15,6 +17,8 @@ export const translations = {
   lao: {
     invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
     LocationButton: "ແຜນທີ່ ສະຖານທີ່ຈັດງານ",
+    DateTime: "ທັນວາ 20, 2025 | 7 ໂມງແລງ",
+    Addrees: "ບ້ານ ຊຳເຄ້, ເມືອງ ໄຊເສດຖາ, ແຂວງ ນະຄອນຫນວຽງຈັນ",
     agenda: "ວາລະງານ",
     weddingCeremony: "ພິທີງານແຕ່ງ",
     lunchReception: "ງານເລີ້ມຕ້ອນຕອນທ່ຽງ",
