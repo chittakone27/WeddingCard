@@ -124,7 +124,7 @@ export default function WeddingCard() {
 >
   {translations[language].LocationButton}
 </button>
-<div style={{marginTop:"42%"}}>
+<div style={{marginTop:"35%"}}>
 <p  style={{ display: "flex",  alignItems: "center",
       justifyContent: "center", color:"black",fontFamily:"open sans", fontSize:"16px", fontWeight:"bold"
 }}
