@@ -22,9 +22,9 @@ export default function LanguageSwitcher() {
               border: language === "en" ? `1px solid ${activePink}` : `1px solid ${inactiveBorder}`,
               boxShadow: language === "en" ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
               transition: "all 0.3s ease",
-              padding: "6px 14px", // perfect padding for mobile & desktop
+              padding: "7px 14px", // perfect padding for mobile & desktop
               fontSize: "0.9rem", // readable text
-              minWidth: "90px", // consistent button width
+              minWidth: "120px", // consistent button width
             }}
           >
             <img
@@ -50,9 +50,9 @@ export default function LanguageSwitcher() {
               border: language === "lao" ? `1px solid ${activePink}` : `1px solid ${inactiveBorder}`,
               boxShadow: language === "lao" ? "0 2px 6px rgba(0,0,0,0.15)" : "none",
               transition: "all 0.3s ease",
-              padding: "6px 14px",
+              padding: "7px 14px",
               fontSize: "0.9rem",
-              minWidth: "90px",
+              minWidth: "120px",
             }}
           >
             <img

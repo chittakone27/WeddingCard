@@ -1,14 +1,25 @@
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
+import { translations } from "./translations";
 
-export default function Location() {
+interface WeddingLocationProps {
+  language: "en" | "lao";
+}
+
+export default function WeddingLocation({ language }: WeddingLocationProps) {
+  const lang = language in translations ? language : "en";
+
   return (
-    <div className="text-center mb-5" style={{ fontFamily: "boonhome", padding: "1rem" }}>
-      
+    <div
+      className="text-center mb-5"
+      style={{         fontFamily: "Open Sans, phetsarath OT",
+ padding: "1rem" }}
+    >
       {/* Heading */}
       <h1
-className="magic-title mb-3"        style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "600" }}
+        className="magic-title mb-3"
+        style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "600" }}
       >
-        ສະຖານທີ່ຈັດງານ
+        {translations[lang].weddingTitle}
       </h1>
 
       {/* Address */}
@@ -16,9 +27,7 @@ className="magic-title mb-3"        style={{ fontSize: "clamp(1.5rem, 4vw, 2.5re
         className="text-gray-600"
         style={{ fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", lineHeight: 1.5 }}
       >
-        Grand Ballroom, Luxury Hotel
-        <br />
-        123 Wedding St, Cityville, Country
+        {translations[lang].Addrees}
       </p>
 
       {/* Image */}
@@ -28,40 +37,43 @@ className="magic-title mb-3"        style={{ fontSize: "clamp(1.5rem, 4vw, 2.5re
       >
         <img
           src="./image/carpark.jpg"
-          alt="carpark"
+          alt="wedding-location"
           className="w-100 h-100 object-fit-cover"
         />
       </div>
 
       {/* Button with Icon */}
       <div className="mt-5">
-  <button
-  onClick={() =>
-    window.open(
-      "https://maps.app.goo.gl/jARzuqZPJaJjqYz19",
-      "_blank",
-      "noopener,noreferrer"
-    )
-  }
-  className="d-flex align-items-center justify-content-center gap-2 mx-auto"
+        <a
+        href="https://maps.app.goo.gl/jARzuqZPJaJjqYz19"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    d-inline-flex 
+    align-items-center 
+    justify-content-center 
+    gap-2 
+    btn 
+    btn-gradient 
+    rounded-pill 
+    shadow 
+    px-4 
+    py-2 
+    fw-bold
+  "
   style={{
-    borderRadius: "30px",
-    border: "1px solid rgba(255,105,180,0.5)",
-    background: "linear-gradient(135deg, #e82084, #8e44ad)", // updated gradient
-    color: "#f7f9fb",
-    fontWeight: "bold",
-    fontFamily: "boonhome",
-    fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
-    padding: "0.5rem 1.5rem",
-    minWidth: "180px",
-    maxWidth: "250px",
-    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    background: "rgba(232, 32, 132, 1)", // wedding theme gradient
+    color: "#fff",
+    fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
+    minWidth: "200px",
+    maxWidth: "380px",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
   }}
 >
-  <FmdGoodOutlinedIcon fontSize="small" />
-  Open in Google Maps
-</button>
-
+        
+          <FmdGoodOutlinedIcon fontSize="small" />
+  {translations[lang].openweddingvanue}
+        </a>
       </div>
     </div>
   );

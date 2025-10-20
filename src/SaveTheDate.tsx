@@ -50,13 +50,13 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="mb-4" style={{ fontWeight: "bold" }}>
+        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, phetsarath OT",}}>
           {translations[lang].SaveTheDate}
         </h2>
 
         <div
           className="bg-light border rounded shadow d-inline-block p-4 p-md-5 mb-5"
-          style={{ fontFamily: "Roboto Mono" }}
+          style={{ fontFamily: "Open sans, phetsarath OT"}}
         >
           <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem" }}>
             {translations[lang].Month || "December"}
@@ -73,11 +73,15 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
         </div>
 
         {timeLeft ? (
-          <div className="mt-5" style={{ fontFamily: "Roboto Mono" }}>
+          <div className="mt-2" style={{fontFamily: "Open Sans, phetsarath OT",
+ }}>
             <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 }}>
               {translations[lang].CountdownText || "Countdown to the Big Day"}
             </h5>
-            <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap">
+            <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap"   style={{
+    transform: "scale(1.3)",
+    transformOrigin: "center", // keeps it centered while scaling
+  }}>
               <CountdownBox label={translations[lang].Days || "Days"} value={timeLeft.days} />
               <CountdownBox label={translations[lang].Hours || "Hours"} value={timeLeft.hours} />
               <CountdownBox label={translations[lang].Minutes || "Minutes"} value={timeLeft.minutes} />

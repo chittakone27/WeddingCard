@@ -43,7 +43,8 @@ export default function WeddingCard() {
   }
 
   return (
-    <div>
+    <div style={{        fontFamily: "Open Sans, phetsarath OT",
+}}>
       {/* === COVER SECTION === */}
       <div
         className="position-relative w-100 d-flex justify-content-center align-items-center overflow-hidden"
@@ -89,7 +90,7 @@ export default function WeddingCard() {
       className="fw-bold mb-1"
       style={{
         color: "black",
-    fontFamily: "Cantarell, Boonhome",
+        fontFamily: "Open Sans, phetsarath OT",
         fontSize: "16px",
         
       }}
@@ -112,7 +113,7 @@ export default function WeddingCard() {
     marginTop: "20px",
     whiteSpace: "normal",      // allows multi-line text if needed
     textAlign: "center",
-    fontFamily: "Cantarell, Boonhome",
+        fontFamily: "Open Sans, phetsarath OT",
   }}
 >
   {translations[language].LocationButton}
@@ -126,7 +127,7 @@ export default function WeddingCard() {
       className="fw-bold mb-1"
       style={{
         color: "black",
-    fontFamily: "Cantarell, Boonhome",
+        fontFamily: "Open Sans, phetsarath OT",
         fontSize: "16px",
         
       }}
@@ -136,7 +137,7 @@ export default function WeddingCard() {
     <p
       style={{
         color: "black",
-    fontFamily: "Cantarell, Boonhome",
+        fontFamily: "Open Sans, phetsarath OT",
         fontSize: "14px",
       }}
     >
@@ -195,14 +196,14 @@ export default function WeddingCard() {
 
       {/* === LOCATION === */}
       <div ref={locationRef}>
-        <LocationTabs />
+        <LocationTabs language={language} />
       </div>
 
       {/* === VIDEO MESSAGE === */}
       <VideoMessage />
 
       {/* === GUESTBOOK === */}
-      <WeddingGuestbook />
+      <WeddingGuestbook language={language} />
 
       {/* === PHOTO ALBUM === */}
       <WeddingAlbum />

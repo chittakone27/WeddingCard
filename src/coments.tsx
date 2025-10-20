@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { translations } from "./translations"; // use your translation file
 
 interface GuestMessage {
   id?: number;
@@ -10,24 +11,27 @@ interface GuestMessage {
   timestamp: string;
 }
 
+interface WeddingGuestbookProps {
+  language: "en" | "lao";
+}
+
 const API_URL =
   "https://klwjccsvwnrkkmkwsmqm.hasura.ap-southeast-1.nhost.run/api/rest/wedding_comment";
 
-export default function WeddingGuestbook() {
+export default function WeddingGuestbook({ language }: WeddingGuestbookProps) {
+  const lang = language in translations ? language : "en";
+
   const [messages, setMessages] = useState<GuestMessage[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // 🔹 GET comments
+  // Fetch comments
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const res = await axios.get<{ wedding_comment: GuestMessage[] }>(API_URL, {
-          headers: {
-            "Content-Type": "application/json",
-            "x-hasura-role": "anonymous", // adjust if needed
-          },
+          headers: { "Content-Type": "application/json", "x-hasura-role": "anonymous" },
         });
         const fetchedMessages = res.data.wedding_comment || [];
         setMessages(fetchedMessages.slice(-50).reverse());
@@ -38,32 +42,19 @@ export default function WeddingGuestbook() {
     fetchMessages();
   }, []);
 
-  // 🔹 POST a new comment
+  // Post new comment
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
 
-    const newMsg: GuestMessage = {
-      name,
-      messages: message,
-      timestamp: new Date().toISOString(),
-    };
+    const newMsg: GuestMessage = { name, messages: message, timestamp: new Date().toISOString() };
 
     setIsLoading(true);
     try {
-      const res = await axios.post<{
-        insert_wedding_comment_one: GuestMessage;
-      }>(
+      const res = await axios.post<{ insert_wedding_comment_one: GuestMessage }>(
         API_URL,
-        {
-          object: newMsg,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "x-hasura-role": "anonymous", // or admin secret if needed
-          },
-        }
+        { object: newMsg },
+        { headers: { "Content-Type": "application/json", "x-hasura-role": "anonymous" } }
       );
 
       const savedMsg = res.data.insert_wedding_comment_one;
@@ -77,25 +68,36 @@ export default function WeddingGuestbook() {
     }
   };
 
+  // Time ago helper
+  function timeAgo(timestamp: string) {
+    const now = new Date();
+    const past = new Date(timestamp);
+    const diff = Math.floor((now.getTime() - past.getTime()) / 1000);
+
+    if (diff < 60) return `${diff}${lang === "lao" ? translations.lao.Seconds : translations.en.Seconds}`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}${lang === "lao" ? translations.lao.minutesAgo : translations.en.minutesAgo}`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}${lang === "lao" ? translations.lao.hoursAgo : translations.en.hoursAgo}`;
+    if (diff < 604800) return `${Math.floor(diff / 86400)}${lang === "lao" ? translations.lao.daysAgo : translations.en.daysAgo}`;
+    return past.toLocaleDateString();
+  }
+
   return (
     <div
       className="min-vh-100 d-flex flex-column align-items-center py-5"
       style={{
-        backgroundImage: 'url("./image/background.png")',
+        // backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
-        fontFamily: "'Open Sans', sans-serif",
+        fontFamily: "Open sans, phetsarath OT",
       }}
     >
+      {/* Title */}
       <h3
         className="text-center mb-4"
-        style={{
-          fontSize: "clamp(1.8rem, 4vw, 2.2rem)",
-          color: "#e82084",
-          marginTop: "20px",
-        }}
+        style={{color:"#e82084", fontSize: "clamp(1.8rem, 4vw, 2.2rem)", marginTop: "20px",fontWeight: "600", fontFamily: "Parisienne, phetsarath OT",
+         }}
       >
-        ຄຳອວຍພອນຂອງພວກທ່ານ
+        {translations[lang].guestbookTitle}
       </h3>
 
       {/* Form */}
@@ -103,14 +105,14 @@ export default function WeddingGuestbook() {
         <input
           type="text"
           className="form-control mb-2"
-          placeholder="ຊື່ຂອງທ່ານ"
+          placeholder={translations[lang].namePlaceholder || "Your Name"}
           value={name}
           onChange={(e) => setName(e.target.value)}
           style={{ borderRadius: "12px", borderColor: "rgba(232,32,132,0.5)" }}
         />
         <textarea
           className="form-control mb-2"
-          placeholder="ຄຳອວຍພອນ..."
+          placeholder={translations[lang].messagePlaceholder || "Your Wishes..."}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
@@ -128,21 +130,14 @@ export default function WeddingGuestbook() {
               border: "none",
             }}
           >
-            {isLoading ? (
-              <>
-                <span className="spinner-border spinner-border-sm me-2" role="status"></span>
-                ກຳລັງສົ່ງ...
-              </>
-            ) : (
-              "ສົ່ງຄຳອວຍພອນ"
-            )}
+            {isLoading ? translations[lang].sendingButton: translations[lang].submitButton}
           </button>
         </div>
       </form>
 
       {/* Messages */}
       <div
-        className="w-100 mt-4"
+        className="w-100 mt-3"
         style={{
           maxWidth: "600px",
           maxHeight: "65vh",
@@ -153,21 +148,21 @@ export default function WeddingGuestbook() {
           boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
         }}
       >
-        {messages.length === 0 && (
-          <p className="text-center text-secondary">ຍັງບໍ່ມີຂໍ້ຄວາມ 😍</p>
-        )}
+        {messages.length === 0 && <p className="text-center text-secondary">{translations[lang].noMessages || "No messages yet 😍"}</p>}
+
         {messages.map((msg, idx) => (
           <div
             key={msg.id || idx}
             className="card mb-3 fade-in shadow-sm"
             style={{ borderRadius: "15px", borderColor: "rgba(232,32,132,0.3)" }}
           >
-            <div className="card-body" style={{ backgroundColor: "#fff0f5" }}>
-              <strong style={{ color: "#e82084" }}>{msg.name}</strong>{" "}
-              <span className="text-muted small">
-                {new Date(msg.timestamp).toLocaleString("lo-LA")}
-              </span>
-              <p className="mb-0 mt-2">{msg.messages}</p>
+            <div className="card-body" style={{ backgroundColor: "#fff0f5", textAlign: "left" }}>
+              <p className="mb-1">
+                <strong style={{ color: "#e82084" }}>{msg.name}</strong> : {msg.messages}
+              </p>
+              <div className="text-end">
+                <small className="text-muted">{timeAgo(msg.timestamp)}</small>
+              </div>
             </div>
           </div>
         ))}

@@ -1,6 +1,7 @@
 // import { m } from "framer-motion";
 // import SaveTheDate from "./SaveTheDate";
 
+
 export const translations = {
   en: {
     invitationTitle: "You're Invited to Our Wedding!",
@@ -17,8 +18,8 @@ export const translations = {
     completed: "Completed",
     bride: "Bride",
     groom: "Groom",
-    wen:"Ms. Chittakone Thammarongsad",
-    jaeng:"Mr. Sitdavan Phonsulikone",
+    wen:"Chittakone Thammarongsad",
+    jaeng:"Sitdavan Phonsulikone",
     SaveTheDate: "Save The Date",
     Month: "December",
     Weekday:" Saturday ",
@@ -36,6 +37,21 @@ export const translations = {
      FIRST_DANCE:" First Dance",
     SOLO_DANCE:" Solo Dance",
     AFTER_PARTY:" After Party",
+    carparkTitle:"Carpark",
+    weddingTitle:"Wedding Venue",
+    Addreescarpark:"Ban Samkhe Primary School Field, Xaysetha District, Vientiane Capital ",
+    opencarpark:"Open Carpark Map",
+    openweddingvanue:"Open Wedding Venue Map",
+     guestbookTitle: "Leave Your Messages",
+    namePlaceholder: "Your Name",
+    messagePlaceholder: "Your Messages...",
+    submitButton: "Send Messages",
+    sendingButton: "Sending...",
+    noMessages: "No messages yet 😍",
+    secondsAgo: "s ago",
+    minutesAgo: "m ago",
+    hoursAgo: "h ago",
+    daysAgo: "d ago",
   },
   lao: {
     invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
@@ -61,7 +77,7 @@ export const translations = {
     Hours:" ຊົ່ວໂມງ",
     Minutes:" ນາທີ",
     Seconds:" ວິນາທີ",
-    CountdownText:"ນັບຖອດຈົນເຖິງວັນສຳຄັນ",
+    CountdownText:"ນັບຖອດຫຼັງສູ່ວັນສຳຄັນ",
     BigDayText:"ມາເຖິງວັນສຳຄັນແລ້ວ! 🎉",
     HAE_KEAY_PROCESSION:" ເລີມຂະບວນແຮ່ເຂຍ ",
     WEDDING_CEREMONY:" ພິທີງານແຕ່ງ ",
@@ -71,5 +87,20 @@ export const translations = {
     FIRST_DANCE:" ການເຕີນລຳຄັ້ນຄັ້ນ",
     SOLO_DANCE:" ຄູ່ບ່າວສາວເຕັ້ນລໍາ",
     AFTER_PARTY:" ຫຼັງງານລ້ຽງ",
+    carparkTitle:"ບ່ອນຈອດລົດ",
+    weddingTitle:"ສະຖານທີ່ຈັດງານ",
+    Addreescarpark:"ເດີ່ນໂຮງຮຽນປະຖົມ ບ້ານຊໍາເຄ້, ເມືອງໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ ",
+    opencarpark:"ເປີດແຜນທີບ່ອນຈອດລົດ",
+    openweddingvanue:"ເປີດແຜນທີສະຖານທີ່ຈັດງານ",
+    guestbookTitle: "ຄຳອວຍພອນຂອງພວກທ່ານ",
+    namePlaceholder: "ຊື່ຂອງທ່ານ",
+    messagePlaceholder: "ຄຳອວຍພອນ...",
+    submitButton: "ສົ່ງຄຳອວຍພອນ",
+    sendingButton: "ກຳລັງສົ່ງ...",
+    noMessages: "ຍັງບໍ່ມີຂໍ້ຄວາມ 😍",
+    secondsAgo: " ວິ ຜ່ານມາ",
+    minutesAgo: " ນາທີ ຜ່ານມາ",
+    hoursAgo: " ຊົ່ວໂມງ ຜ່ານມາ",
+    daysAgo: " ມື້ ຜ່ານມາ",
   }
 };

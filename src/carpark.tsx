@@ -1,12 +1,19 @@
 import FmdGoodOutlinedIcon from "@mui/icons-material/FmdGoodOutlined";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
+import { translations } from "./translations";
 
-export default function Carpark() {
+interface CarparkProps {
+  language: "en" | "lao";
+}
+
+export default function Carpark({ language }: CarparkProps) {
+  const lang = language in translations ? language : "en";
+
   return (
     <div
       style={{
-        fontFamily: "boonhome",
+        fontFamily: "Open Sans, phetsarath OT",
         borderRadius: "1rem",
         maxWidth: "100%",
         padding: "2rem 1rem",
@@ -14,15 +21,23 @@ export default function Carpark() {
       }}
     >
       {/* Heading */}
-      <h1 className="magic-title mb-3"style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "600" }}
->
-        ບ່ອນຈອດລົດ
+      <h1
+        className="magic-title mb-3"
+        style={{ fontSize: "clamp(1.5rem, 4vw, 2.5rem)", fontWeight: "600" }}
+      >
+        {translations[lang].carparkTitle}
       </h1>
 
       {/* Address */}
-      <p className="text-gray-600" style={{ fontFamily: "boonhome", fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)", lineHeight: 1.5 }}>
-        Ban Xamkhe, Xaysettha District, <br />
-        Vientiane Capital, Laos
+      <p
+        className="text-gray-600"
+        style={{
+          fontFamily: "boonhome",
+          fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
+          lineHeight: 1.5,
+        }}
+      >
+        {translations[lang].Addreescarpark}
       </p>
 
       {/* Image */}
@@ -37,33 +52,39 @@ export default function Carpark() {
         />
       </div>
 
-      {/* Button */}
+      {/* Location Button */}
       <div className="mt-5">
-        <button
-          onClick={() =>
-            window.open(
-              "https://maps.app.goo.gl/jARzuqZPJaJjqYz19",
-              "_blank",
-              "noopener,noreferrer"
-            )
-          }
-          className="mx-auto d-flex align-items-center justify-content-center gap-2"
-          style={{
-            zIndex: 20,
-            color: "white",
-            background: "linear-gradient(135deg, rgba(232, 32, 132, 1), rgba(255, 105, 180, 1))",
-            border: "none",
-            padding: "0.75rem 2rem",
-            borderRadius: "30px",
-            fontWeight: "bold",
-            fontSize: "clamp(0.9rem, 2.5vw, 1rem)",
-            boxShadow: "0 4px 15px rgba(232, 32, 132, 0.4)",
-            transition: "transform 0.2s ease, box-shadow 0.2s ease",
-          }}
-        >
-          <FmdGoodOutlinedIcon fontSize="small" />
-          Open in Google Maps
-        </button>
+    <a
+  href="https://maps.app.goo.gl/jARzuqZPJaJjqYz19"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    d-inline-flex 
+    align-items-center 
+    justify-content-center 
+    gap-2 
+    btn 
+    btn-gradient 
+    rounded-pill 
+    shadow 
+    px-4 
+    py-2 
+    fw-bold
+  "
+  style={{
+    background: "rgba(232, 32, 132, 1)", // wedding theme gradient
+    color: "#fff",
+    fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
+    minWidth: "200px",
+    maxWidth: "300px",
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    fontFamily: "Open Sans,phetsarath OT",
+  }}
+>
+  <FmdGoodOutlinedIcon fontSize="small" />
+  {translations[lang].opencarpark}
+</a>
+
       </div>
     </div>
   );
