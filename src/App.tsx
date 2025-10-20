@@ -11,10 +11,10 @@ import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
 import Snowflakes from "./Snowflakes";
 import Cover from "./cover";
-import Profile from "./profile";
+// import Profile from "./profile";
 import WeddingAlbum from "./WeddingAlbum";
 import GroomSection from "./groom";
-import Bridesection from "./assets/bride";
+import Bridesection from "./bride";
 export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
   const { language } = useLanguage();
@@ -85,7 +85,17 @@ export default function WeddingCard() {
     objectFit: "contain", // keeps full image visible without cropping
   }}
 />
-
+        <p
+      className="fw-bold mb-1"
+      style={{
+        color: "black",
+    fontFamily: "Cantarell, Boonhome",
+        fontSize: "16px",
+        
+      }}
+    >
+      {translations[language].invitationTitle}
+    </p>
 
   {/* Button */}
 <button
@@ -111,6 +121,7 @@ export default function WeddingCard() {
 
   {/* Date & Address */}
   <div className="mt-4">
+
     <p
       className="fw-bold mb-1"
       style={{
@@ -140,12 +151,14 @@ export default function WeddingCard() {
       {/* <Profile /> */}
 
       {/* === GROOM SECTION === */}
- <GroomSection
+<GroomSection
   imageUrl="./image/groom.jpg"
-  name="Chittakone Thammarongsad"
-  facebookUrl="https://facebook.com/johnmichael"
+  name={translations[language].wen}
+  facebookUrl="https://www.facebook.com/chittakone.thammarongsad"
   instagramUrl="https://instagram.com/johnmichael"
+  language={language}
 />
+
 
 {/* Heart GIF between groom and bride */}
 <div className="d-flex justify-content-center my-4">
@@ -162,20 +175,23 @@ export default function WeddingCard() {
 
 <Bridesection
   imageUrl="./image/bride.jpg"
-  name="Sitdavan Phonsulikone"
-  facebookUrl="https://facebook.com/johnmichael"
+  name={translations[language].jaeng}
+  facebookUrl="https://www.facebook.com/profile.php?id=100002477708470"
   instagramUrl="https://instagram.com/johnmichael"
+  language={language} // <-- pass current language
 />
+
 
 
       {/* === SAVE THE DATE + SNOW === */}
       <div className="position-relative">
         <Snowflakes />
-        <SaveTheDate />
+        <SaveTheDate   language={language} // <-- pass current language
+ />
       </div>
 
       {/* === AGENDA === */}
-      <Agenda2 />
+      <Agenda2 language={language}/>
 
       {/* === LOCATION === */}
       <div ref={locationRef}>

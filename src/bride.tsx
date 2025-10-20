@@ -1,25 +1,32 @@
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { translations } from "./translations";
 
 interface BrideSectionProps {
   imageUrl: string;
   name: string;
   facebookUrl?: string;
   instagramUrl?: string;
+  language: "en" | "lao"; // add this line
 }
+
 
 const Bridesection: React.FC<BrideSectionProps> = ({
   imageUrl,
   name,
   facebookUrl,
   instagramUrl,
+  language,
 }) => {
+  // Fallback to English if language is undefined or not supported
+  const lang = language in translations ? language : "en";
+
   return (
     <section
       className="d-flex justify-content-center align-items-center vh-100"
       style={{
         backgroundColor: "#fff0f5",
-            fontFamily:"Parisienne, Boonhome"
+        fontFamily: "Parisienne, Boonhome",
       }}
     >
       <div className="position-relative w-100 w-md-75 h-100 d-flex flex-column justify-content-between rounded shadow-lg overflow-hidden">
@@ -38,13 +45,13 @@ const Bridesection: React.FC<BrideSectionProps> = ({
             fontSize: "3rem",
             color: "#040404ff",
             zIndex: 10,
-              backgroundColor: "rgba(203, 201, 202, 0.5)",
+            backgroundColor: "rgba(203, 201, 202, 0.5)",
             display: "inline-block",
             padding: "0.2rem 0.6rem",
             borderRadius: "5px",
           }}
         >
-          Bride
+          {translations[lang].bride}
         </h2>
 
         {/* Bottom Name + Social Links */}

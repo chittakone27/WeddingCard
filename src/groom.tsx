@@ -1,29 +1,31 @@
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { translations } from "./translations";
 
 interface GroomSectionProps {
   imageUrl: string;
   name: string;
   facebookUrl?: string;
   instagramUrl?: string;
+  language: "en" | "lao"; // Add language prop
 }
 
-const Groomsection: React.FC<GroomSectionProps> = ({
+const GroomSection: React.FC<GroomSectionProps> = ({
   imageUrl,
   name,
   facebookUrl,
   instagramUrl,
+  language,
 }) => {
+  const lang = language in translations ? language : "en";
+
   return (
     <section
       className="d-flex justify-content-center align-items-center vh-100"
-      style={{
-        backgroundColor: "#fff0f5",
-            fontFamily:"Parisienne, Boonhome"
-      }}
+      style={{ backgroundColor: "#fff0f5", fontFamily: "Parisienne, phetsarath ot" }}
     >
       <div className="position-relative w-100 w-md-75 h-100 d-flex flex-column justify-content-between rounded shadow-lg overflow-hidden">
-        {/* Bride Image */}
+        {/* Groom Image */}
         <img
           src={imageUrl}
           alt={name}
@@ -38,21 +40,17 @@ const Groomsection: React.FC<GroomSectionProps> = ({
             fontSize: "3rem",
             color: "#040404ff",
             zIndex: 10,
-              backgroundColor: "rgba(203, 201, 202, 0.5)",
+            backgroundColor: "rgba(203, 201, 202, 0.5)",
             display: "inline-block",
             padding: "0.2rem 0.6rem",
             borderRadius: "5px",
-            
           }}
         >
-          Groom
+          {translations[lang].groom}
         </h2>
 
         {/* Bottom Name + Social Links */}
-        <div
-          className="position-relative text-center mb-4"
-          style={{ zIndex: 10 }}
-        >
+        <div className="position-relative text-center mb-4" style={{ zIndex: 10 }}>
           <p
             className="fs-3 mb-3"
             style={{
@@ -95,4 +93,4 @@ const Groomsection: React.FC<GroomSectionProps> = ({
   );
 };
 
-export default Groomsection;
+export default GroomSection;

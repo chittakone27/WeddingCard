@@ -8,7 +8,7 @@ export default function LocationTabs() {
   return (
   <div
       style={{
-        backgroundImage: 'url("./image/background.png")',
+        // backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

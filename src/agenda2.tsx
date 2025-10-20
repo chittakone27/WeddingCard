@@ -1,47 +1,39 @@
-import { useEffect, useRef } from "react";
-import "./Agenda2.css";
+import { useRef } from "react";
 import { motion } from "framer-motion";
+import { translations } from "./translations"; // Make sure agenda translations exist
 
 interface AgendaItem {
   time: string;
-  event: string;
+  eventKey: string; // use translation key instead of hard-coded string
   image: string;
   align: "left" | "right";
 }
 
-export default function Agenda2() {
+interface Agenda2Props {
+  language: "en" | "lao";
+}
+
+export default function Agenda2({ language }: Agenda2Props) {
+  const lang = language in translations ? language : "en";
+
   const agenda: AgendaItem[] = [
-    { time: "3:00 PM", event: "HAE KEAY PROCESSION", image: "./image/car.png", align: "right" },
-    { time: "4:00 PM", event: "WEDDING CEREMONY", image: "./image/ring.png", align: "left" },
-    { time: "5:00 PM", event: "APPETIZERS", image: "./image/cake.png", align: "right" },
-    { time: "6:00 PM", event: "PHOTO SESSION", image: "./image/photo.png", align: "left" },
-    { time: "8:00 PM", event: "BUFFET DINNER", image: "./image/dinner.png", align: "right" },
-    { time: "09:00 PM", event: "FIRST DANCE", image: "./image/music.png", align: "left" },
-    { time: "10:00 PM", event: "SOLO DANCE", image: "./image/dance.png", align: "right" },
-    { time: "11:00 PM", event: "AFTER PARTY", image: "./image/party.png", align: "left" },
+    { time: "3:00 PM", eventKey:  "HAE_KEAY_PROCESSION", image: "./image/car.png", align: "right" },
+    { time: "4:00 PM", eventKey: "WEDDING_CEREMONY", image: "./image/ring.png", align: "left" },
+    { time: "5:00 PM", eventKey: "APPETIZERS", image: "./image/cake.png", align: "right" },
+    { time: "6:00 PM", eventKey: "PHOTO_SESSION", image: "./image/photo.png", align: "left" },
+    { time: "8:00 PM", eventKey: "BUFFET_DINNER", image: "./image/dinner.png", align: "right" },
+    { time: "09:00 PM", eventKey: "FIRST_DANCE", image: "./image/music.png", align: "left" },
+    { time: "10:00 PM", eventKey: "SOLO_DANCE", image: "./image/dance.png", align: "right" },
+    { time: "11:00 PM", eventKey: "AFTER_PARTY", image: "./image/party.png", align: "left" },
   ];
 
   const imageWidth = 50;
   const imageHeight = 50;
   const distanceFromLine = 25;
-  const connectorLength = 25; // short line from center
+  const connectorLength = 25;
   const sectionSpacing = 60;
 
   const itemRefs = useRef<HTMLDivElement[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("active", entry.isIntersecting);
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    itemRefs.current.forEach((ref) => ref && observer.observe(ref));
-    return () => itemRefs.current.forEach((ref) => ref && observer.unobserve(ref));
-  }, []);
 
   return (
     <div
@@ -56,21 +48,21 @@ export default function Agenda2() {
         padding: "120px 0 100px 0",
       }}
     >
- <motion.h1
-      initial={{ opacity: 0, y: 50 }}
+      <motion.h1
+        initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: 'easeOut' }}
-      style={{
-        textAlign: "center",
-        color: "black",
-        fontSize: "2.5rem",
-        marginBottom: "100px",
-        fontFamily: "Parisienne, Boonhome",
-      }}
-    >
-      Wedding Agenda
-    </motion.h1>
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        style={{
+          fontFamily: "Parisienne, Boonhome",
+          fontSize: "clamp(3rem, 6vw, 5rem)",
+          fontWeight: "bold",
+          color: "#e82084",
+          marginBottom: "100px",
+        }}
+      >
+        {translations[lang].agenda}
+      </motion.h1>
 
       {/* Main Center Line */}
       <div
@@ -88,10 +80,14 @@ export default function Agenda2() {
       {/* Timeline Items */}
       <div style={{ position: "relative" }}>
         {agenda.map((item, index) => (
-          <div
+          <motion.div
             key={index}
             ref={(el) => (itemRefs.current[index] = el!)}
             className={`timeline-item ${item.align}`}
+            initial={{ opacity: 0, x: item.align === "left" ? -100 : 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, amount: 0.3 }} // <-- triggers animation every scroll
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -106,12 +102,11 @@ export default function Agenda2() {
                   display: "flex",
                   alignItems: "center",
                   position: "absolute",
-                  right: `calc(50% +  ${distanceFromLine}px)`,
+                  right: `calc(50% + ${distanceFromLine}px)`,
                   transform: "translateY(-50%)",
                   gap: "8px",
                 }}
               >
-                {/* Connecting Line */}
                 <div
                   style={{
                     position: "absolute",
@@ -121,14 +116,17 @@ export default function Agenda2() {
                     backgroundColor: "black",
                   }}
                 />
-                {/* Text + Image */}
                 <div style={{ left: "25%", maxWidth: "100px" }}>
-                  <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "13px" }}>{item.time}</p>
-                  <p style={{ margin: 0, color: "black", fontSize: "13px", wordWrap: "break-word" }}>{item.event}</p>
+                  <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "10px" }}>
+                    {item.time}
+                  </p>
+                  <p style={{ margin: 0, color: "black", fontSize: "10px", wordWrap: "break-word" }}>
+                    {translations[lang][item.eventKey]}
+                  </p>
                 </div>
                 <img
                   src={item.image}
-                  alt={item.event}
+                  alt={item.eventKey}
                   style={{
                     width: `${imageWidth}px`,
                     height: `${imageHeight}px`,
@@ -150,7 +148,6 @@ export default function Agenda2() {
                   gap: "8px",
                 }}
               >
-                {/* Connecting Line */}
                 <div
                   style={{
                     position: "absolute",
@@ -160,10 +157,9 @@ export default function Agenda2() {
                     backgroundColor: "black",
                   }}
                 />
-                {/* Image + Text */}
                 <img
                   src={item.image}
-                  alt={item.event}
+                  alt={item.eventKey}
                   style={{
                     width: `${imageWidth}px`,
                     height: `${imageHeight}px`,
@@ -171,37 +167,18 @@ export default function Agenda2() {
                   }}
                 />
                 <div style={{ right: "25%", maxWidth: "80px" }}>
-                  <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "13px" }}>{item.time}</p>
-                  <p style={{ margin: 0, color: "black", fontSize: "13px", wordWrap: "break-word" }}>{item.event}</p>
+                  <p style={{ margin: 0, fontWeight: "bold", color: "black", fontSize: "10px" }}>
+                    {item.time}
+                  </p>
+                  <p style={{ margin: 0, color: "black", fontSize: "10px", wordWrap: "break-word" }}>
+                    {translations[lang][item.eventKey]}
+                  </p>
                 </div>
               </div>
             )}
-          </div>
+          </motion.div>
         ))}
       </div>
-
-      {/* Responsive Styling */}
-      <style>
-        {`
-          @media (max-width: 768px) {
-            .timeline-item div {
-              transform: translateY(5%) scale(0.9);
-            }
-            h1 {
-              font-size: 2rem !important;
-            }
-          }
-
-          @media (max-width: 480px) {
-            .timeline-item div {
-              transform: translateY(5%) scale(0.85);
-            }
-            .timeline-item div p {
-              font-size: 12px !important;
-            }
-          }
-        `}
-      </style>
     </div>
   );
 }

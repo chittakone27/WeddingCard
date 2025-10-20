@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { translations } from "./translations"; // make sure translations include SaveTheDate
 
 export const WEDDING_DATE = new Date("2025-12-20T00:00:00");
+
+interface SaveTheDateProps {
+  language: "en" | "lao" 
+}
 
 function calculateTimeLeft() {
   const now = new Date();
@@ -17,8 +22,9 @@ function calculateTimeLeft() {
   };
 }
 
-export default function SaveTheDate() {
+export default function SaveTheDate({ language }: SaveTheDateProps) {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+  const lang = language in translations ? language : "en";
 
   useEffect(() => {
     const timer = setInterval(() => setTimeLeft(calculateTimeLeft()), 1000);
@@ -28,16 +34,13 @@ export default function SaveTheDate() {
   return (
     <div
       style={{
-        backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         paddingTop: "10vh",
         paddingBottom: "5vh",
-
       }}
     >
       <motion.div
@@ -47,44 +50,44 @@ export default function SaveTheDate() {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="mb-4 fs-3 fs-md-2" style={{fontFamily:"Parisienne, Boonhome"}}
->Save the Date!</h2>
+        <h2 className="mb-4" style={{ fontWeight: "bold" }}>
+          {translations[lang].SaveTheDate}
+        </h2>
 
-        {/* Calendar card */}
-        <div className="bg-light border rounded shadow d-inline-block p-3 p-md-4 mb-4" style={{fontFamily:"Roboto Mono"}}>
-          <div
-            className="text-uppercase fw-bold text-secondary"
-            style={{ fontSize: "0.85rem" }}
-          >
-            December
+        <div
+          className="bg-light border rounded shadow d-inline-block p-4 p-md-5 mb-5"
+          style={{ fontFamily: "Roboto Mono" }}
+        >
+          <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem" }}>
+            {translations[lang].Month || "December"}
           </div>
           <div
             className="fw-bold"
-            style={{
-              fontSize: "clamp(2.5rem, 8vw, 4rem)",
-              lineHeight: 1,
-            }}
+            style={{ fontSize: "clamp(4rem, 12vw, 6rem)", lineHeight: 1 }}
           >
             20
           </div>
-          <div className="text-muted" style={{ fontSize: "1rem" }}>
-            Saturday, 2025
+          <div className="text-muted" style={{ fontSize: "1.25rem" }}>
+            {translations[lang].Weekday || "Saturday"}, 2025
           </div>
         </div>
 
-        {/* Countdown Timer */}
         {timeLeft ? (
-          <div className="mt-4" style={{fontFamily:"Roboto Mono"}}>
-            <h5 className="mb-3 fs-6 fs-md-5">Countdown to the Big Day</h5>
-            <div className="d-flex justify-content-center gap-2 gap-md-3 flex-wrap">
-              <CountdownBox label="Days" value={timeLeft.days} />
-              <CountdownBox label="Hours" value={timeLeft.hours} />
-              <CountdownBox label="Minutes" value={timeLeft.minutes} />
-              <CountdownBox label="Seconds" value={timeLeft.seconds} />
+          <div className="mt-5" style={{ fontFamily: "Roboto Mono" }}>
+            <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 }}>
+              {translations[lang].CountdownText || "Countdown to the Big Day"}
+            </h5>
+            <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap">
+              <CountdownBox label={translations[lang].Days || "Days"} value={timeLeft.days} />
+              <CountdownBox label={translations[lang].Hours || "Hours"} value={timeLeft.hours} />
+              <CountdownBox label={translations[lang].Minutes || "Minutes"} value={timeLeft.minutes} />
+              <CountdownBox label={translations[lang].Seconds || "Seconds"} value={timeLeft.seconds} />
             </div>
           </div>
         ) : (
-          <p className="mt-4 text-success fw-bold fs-5">It's the big day! 🎉</p>
+          <p className="mt-5 text-success fw-bold" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+            {translations[lang].BigDayText || "It's the big day! 🎉"}
+          </p>
         )}
       </motion.div>
     </div>
@@ -99,8 +102,8 @@ function CountdownBox({ label, value }: { label: string; value: number }) {
         style={{
           minWidth: "60px",
           maxWidth: "100px",
-          width: "clamp(60px, 15vw, 100px)", // responsive width
-          fontSize: "clamp(0.8rem, 2vw, 1.2rem)", // responsive text
+          width: "clamp(60px, 15vw, 100px)",
+          fontSize: "clamp(0.8rem, 2vw, 1.2rem)",
         }}
       >
         <div className="fw-bold">{value.toString().padStart(2, "0")}</div>

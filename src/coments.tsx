@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import './App.css'; // For fade-in animation
+import "./App.css";
 
 interface GuestMessage {
+  id?: number;
   name: string;
   messages: string;
   timestamp: string;
 }
 
-const API_URL = "https://sheetdb.io/api/v1/icj1nzjtzfp2w";
+const API_URL =
+  "https://klwjccsvwnrkkmkwsmqm.hasura.ap-southeast-1.nhost.run/api/rest/wedding_comment";
 
 export default function WeddingGuestbook() {
   const [messages, setMessages] = useState<GuestMessage[]>([]);
@@ -17,23 +19,26 @@ export default function WeddingGuestbook() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch messages from SheetDB
+  // 🔹 GET comments
   useEffect(() => {
-const fetchMessages = async () => {
-  try {
-    const res = await axios.get(API_URL);
-    // Type assertion: tell TS this is GuestMessage[]
-    const fetchedMessages: GuestMessage[] = (res.data as GuestMessage[]).slice(-50).reverse();
-    setMessages(fetchedMessages);
-  } catch (err) {
-    console.error("Error fetching messages:", err);
-  }
-};
-
+    const fetchMessages = async () => {
+      try {
+        const res = await axios.get<{ wedding_comment: GuestMessage[] }>(API_URL, {
+          headers: {
+            "Content-Type": "application/json",
+            "x-hasura-role": "anonymous", // adjust if needed
+          },
+        });
+        const fetchedMessages = res.data.wedding_comment || [];
+        setMessages(fetchedMessages.slice(-50).reverse());
+      } catch (err) {
+        console.error("Error fetching messages:", err);
+      }
+    };
     fetchMessages();
   }, []);
 
-  // Submit a new message
+  // 🔹 POST a new comment
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
@@ -46,13 +51,23 @@ const fetchMessages = async () => {
 
     setIsLoading(true);
     try {
-      const response = await axios.post(API_URL, { data: [newMsg] }, {
-        headers: { "Content-Type": "application/json" }
-      });
-      console.log("POST response:", response.data);
+      const res = await axios.post<{
+        insert_wedding_comment_one: GuestMessage;
+      }>(
+        API_URL,
+        {
+          object: newMsg,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "x-hasura-role": "anonymous", // or admin secret if needed
+          },
+        }
+      );
 
-      // Optimistically update messages locally
-      setMessages([{ ...newMsg, id: Date.now() }, ...messages].slice(0, 50));
+      const savedMsg = res.data.insert_wedding_comment_one;
+      setMessages([savedMsg, ...messages].slice(0, 50));
       setName("");
       setMessage("");
     } catch (err) {
@@ -67,12 +82,11 @@ const fetchMessages = async () => {
       className="min-vh-100 d-flex flex-column align-items-center py-5"
       style={{
         backgroundImage: 'url("./image/background.png")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
         fontFamily: "'Open Sans', sans-serif",
       }}
     >
-      {/* Header */}
       <h3
         className="text-center mb-4"
         style={{
@@ -142,16 +156,17 @@ const fetchMessages = async () => {
         {messages.length === 0 && (
           <p className="text-center text-secondary">ຍັງບໍ່ມີຂໍ້ຄວາມ 😍</p>
         )}
-
         {messages.map((msg, idx) => (
           <div
-            key={msg.timestamp + idx}
+            key={msg.id || idx}
             className="card mb-3 fade-in shadow-sm"
             style={{ borderRadius: "15px", borderColor: "rgba(232,32,132,0.3)" }}
           >
             <div className="card-body" style={{ backgroundColor: "#fff0f5" }}>
               <strong style={{ color: "#e82084" }}>{msg.name}</strong>{" "}
-              <span className="text-muted small">{new Date(msg.timestamp).toLocaleString("lo-LA")}</span>
+              <span className="text-muted small">
+                {new Date(msg.timestamp).toLocaleString("lo-LA")}
+              </span>
               <p className="mb-0 mt-2">{msg.messages}</p>
             </div>
           </div>
