@@ -66,6 +66,7 @@ export default function Agenda2() {
         color: "black",
         fontSize: "2.5rem",
         marginBottom: "100px",
+        fontFamily: "Parisienne, Boonhome",
       }}
     >
       Wedding Agenda

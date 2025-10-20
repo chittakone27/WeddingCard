@@ -1,7 +1,6 @@
-
 export default function VideoMessage() {
   return (
-      <div
+    <div
       style={{
         backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
@@ -10,12 +9,36 @@ export default function VideoMessage() {
         minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "115px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "2rem",
+        textAlign: "center",
       }}
     >
-     {/* <div className="text-center"> */}
-      <h2 className="mb-4">A Special Message from Us</h2>
-      <div className="ratio ratio-16x9">
+      {/* Heading */}
+      <h2
+        style={{
+          fontSize: "clamp(1.5rem, 4vw, 2.5rem)",
+          color: "#000",
+          fontWeight: "bold",
+          marginBottom: "2rem",
+        }}
+      >
+        A Special Message from Us
+      </h2>
+
+      {/* Video Container */}
+      <div
+        className="ratio ratio-16x9"
+        style={{
+          maxWidth: "85%",
+          minWidth: "250px",
+          borderRadius: "12px",
+          overflow: "hidden",
+        }}
+      >
         <iframe
           src="https://www.youtube.com/embed/ScMzIvxBSi4"
           title="Welcome Video"
@@ -23,7 +46,6 @@ export default function VideoMessage() {
           allowFullScreen
         ></iframe>
       </div>
-      
     </div>
   );
 }

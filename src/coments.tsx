@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './App.css'; // CSS สำหรับ animation
+import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css'; // For fade-in animation
+
 interface GuestMessage {
   name: string;
   messages: string;
@@ -15,18 +17,23 @@ export default function WeddingGuestbook() {
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Fetch messages from SheetDB
   useEffect(() => {
-    const fetchMessages = async () => {
-      try {
-        const res = await axios.get<GuestMessage[]>(API_URL);
-        setMessages(res.data.slice(-50).reverse());
-      } catch (err) {
-        console.error("Error fetching messages:", err);
-      }
-    };
+const fetchMessages = async () => {
+  try {
+    const res = await axios.get(API_URL);
+    // Type assertion: tell TS this is GuestMessage[]
+    const fetchedMessages: GuestMessage[] = (res.data as GuestMessage[]).slice(-50).reverse();
+    setMessages(fetchedMessages);
+  } catch (err) {
+    console.error("Error fetching messages:", err);
+  }
+};
+
     fetchMessages();
   }, []);
 
+  // Submit a new message
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!name.trim() || !message.trim()) return;
@@ -39,8 +46,12 @@ export default function WeddingGuestbook() {
 
     setIsLoading(true);
     try {
-      await axios.post(API_URL, { data: [newMsg] });
-      // เพิ่ม property `id` สำหรับ key และ animation
+      const response = await axios.post(API_URL, { data: [newMsg] }, {
+        headers: { "Content-Type": "application/json" }
+      });
+      console.log("POST response:", response.data);
+
+      // Optimistically update messages locally
       setMessages([{ ...newMsg, id: Date.now() }, ...messages].slice(0, 50));
       setName("");
       setMessage("");
@@ -52,127 +63,100 @@ export default function WeddingGuestbook() {
   };
 
   return (
-     <div
+    <div
+      className="min-vh-100 d-flex flex-column align-items-center py-5"
       style={{
         backgroundImage: 'url("./image/background.png")',
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
-        position: "relative",
-        overflow: "hidden",
-        paddingTop: "115px",
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        fontFamily: "'Open Sans', sans-serif",
       }}
     >
-      <h3 style={{ fontSize: "2rem", color: "#050505ff", marginBottom: "1.5rem" }}>
+      {/* Header */}
+      <h3
+        className="text-center mb-4"
+        style={{
+          fontSize: "clamp(1.8rem, 4vw, 2.2rem)",
+          color: "#e82084",
+          marginTop: "20px",
+        }}
+      >
         ຄຳອວຍພອນຂອງພວກທ່ານ
       </h3>
 
-      <form onSubmit={handleSubmit} style={{ marginBottom: "2rem" }}>
+      {/* Form */}
+      <form className="w-100" style={{ maxWidth: "600px" }} onSubmit={handleSubmit}>
         <input
           type="text"
+          className="form-control mb-2"
           placeholder="ຊື່ຂອງທ່ານ"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{
-            width: "90%",
-            padding: "0.5rem",
-            marginBottom: "0.5rem",
-            border: "1px solid rgba(0,204,204,1)",
-            borderRadius: "10px",
-          }}
+          style={{ borderRadius: "12px", borderColor: "rgba(232,32,132,0.5)" }}
         />
         <textarea
+          className="form-control mb-2"
           placeholder="ຄຳອວຍພອນ..."
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
-          style={{
-            border: "1px solid rgba(0,204,204,1)",
-            borderRadius: "10px",
-            width: "90%",
-            padding: "0.5rem",
-            marginBottom: "0.5rem",
-          }}
+          style={{ borderRadius: "12px", borderColor: "rgba(232,32,132,0.5)" }}
         />
-
-        <div style={{ display: "flex", justifyContent: "center", marginTop: "1rem" }}>
+        <div className="d-flex justify-content-center mt-3">
           <button
             type="submit"
-            className="btn px-4 py-2 fw-semibold"
-            style={{
-              border: "1px solid rgba(0,204,204,1)",
-              borderRadius: "10px",
-              backgroundColor: "rgba(0,204,204,1)",
-              color: "rgba(249, 251, 251, 1)",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-            }}
+            className="btn btn-gradient px-4 fw-bold"
             disabled={isLoading}
+            style={{
+              background: "linear-gradient(135deg, #e82084, #ff69b4)",
+              color: "#fff",
+              borderRadius: "30px",
+              border: "none",
+            }}
           >
-            {isLoading && (
-              <span
-                className="spinner-border spinner-border-sm"
-                role="status"
-                aria-hidden="true"
-              ></span>
+            {isLoading ? (
+              <>
+                <span className="spinner-border spinner-border-sm me-2" role="status"></span>
+                ກຳລັງສົ່ງ...
+              </>
+            ) : (
+              "ສົ່ງຄຳອວຍພອນ"
             )}
-            {isLoading ? "ກຳລັງສົ່ງ..." : "ສົ່ງຄຳອວຍພອນ"}
           </button>
         </div>
       </form>
 
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center", // horizontally center
-    alignItems: "center",     // vertically center (optional)
-    width: "100%",
-    minHeight: 400,       // make sure it fills screen height
-    backgroundColor: "#f9f9f9", // soft background optional
-  }}
->
-  <div
-    style={{
-      width: "100%",
-      maxWidth: "600px",     // limits width for better look
-      maxHeight: 400,
-      overflowY: "auto",
-      textAlign: "center",
-      padding: "1rem",
-      borderRadius: "16px",
-    }}
-  >
-    {messages.length === 0 && (
-      <p style={{ color: "#555" }}>ຍັງບໍ່ມີຂໍ້ຄວາມ 😍</p>
-    )}
-
-    {messages.map((msg, idx) => (
+      {/* Messages */}
       <div
-        key={msg.timestamp + idx}
-        className="fade-in"
+        className="w-100 mt-4"
         style={{
-          border: "1px solid rgba(0,204,204,1)",
-          backgroundColor: "white",
-          color: "rgba(0,204,204,1)",
+          maxWidth: "600px",
+          maxHeight: "65vh",
+          overflowY: "auto",
           padding: "1rem",
-          marginBottom: "1rem",
-          borderRadius: "15px",
+          backgroundColor: "#fff0f5",
+          borderRadius: "16px",
           boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
-          textAlign: "left",
         }}
       >
-        <strong style={{ color: "#d63384" }}>{msg.name}</strong>{" "}
-        <span style={{ fontSize: "0.8rem", color: "#999" }}>
-          {new Date(msg.timestamp).toLocaleString("lo-LA")}
-        </span>
-        <p style={{ marginTop: "0.5rem" }}>{msg.messages}</p>
-      </div>
-    ))}
-  </div>
-</div>
+        {messages.length === 0 && (
+          <p className="text-center text-secondary">ຍັງບໍ່ມີຂໍ້ຄວາມ 😍</p>
+        )}
 
+        {messages.map((msg, idx) => (
+          <div
+            key={msg.timestamp + idx}
+            className="card mb-3 fade-in shadow-sm"
+            style={{ borderRadius: "15px", borderColor: "rgba(232,32,132,0.3)" }}
+          >
+            <div className="card-body" style={{ backgroundColor: "#fff0f5" }}>
+              <strong style={{ color: "#e82084" }}>{msg.name}</strong>{" "}
+              <span className="text-muted small">{new Date(msg.timestamp).toLocaleString("lo-LA")}</span>
+              <p className="mb-0 mt-2">{msg.messages}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

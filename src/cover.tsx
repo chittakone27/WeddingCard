@@ -22,18 +22,30 @@
 // }
 export default function Cover() {
   return (
-    <div
+      <div
       style={{
         backgroundColor: "rgba(251, 252, 252)",
+      backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
         position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100vh",
-        zIndex: -1,
+        zIndex: -1, // 👈 behind content
       }}
-    >
-      {/* You can add other content here if needed */}
-    </div>
+    ></div>
+    // <div
+    //   style={{
+    //     position: "absolute",
+    //     top: 0,
+    //     left: 0,
+    //     width: "100%",
+    //     height: "100vh",
+    //     zIndex: -1,
+    //   }}
+    // >
+    // </div>
   );
 }
