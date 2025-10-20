@@ -207,6 +207,9 @@ export default function WeddingCard() {
 
       {/* === PHOTO ALBUM === */}
       <WeddingAlbum />
+      <div className="text-center mt-4 mb-3" style={{ fontSize: "0.9rem", color: "#6c757d" }}>
+  {translations[language].credits}
+</div>
     </div>
   );
 }

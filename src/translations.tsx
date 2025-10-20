@@ -52,6 +52,8 @@ export const translations = {
     minutesAgo: "m ago",
     hoursAgo: "h ago",
     daysAgo: "d ago",
+    credits: "Developed with ❤️ by Chittakone & Sitdavan"
+
   },
   lao: {
     invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
@@ -102,5 +104,7 @@ export const translations = {
     minutesAgo: " ນາທີ ຜ່ານມາ",
     hoursAgo: " ຊົ່ວໂມງ ຜ່ານມາ",
     daysAgo: " ມື້ ຜ່ານມາ",
+    credits: "ພັດທະນາດ້ວຍ❤️ໂດຍ ທ.ຈິດຕະກອນ & ນ.ສິດດາວັນ"
+
   }
 };
