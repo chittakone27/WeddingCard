@@ -1,23 +1,26 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { translations } from "./translations"; // Make sure agenda translations exist
+import { translations } from "./translations";
+
+type Language = keyof typeof translations;
+type TranslationKey = keyof (typeof translations)["en"]; // keys shared by all languages
 
 interface AgendaItem {
   time: string;
-  eventKey: string; // use translation key instead of hard-coded string
+  eventKey: TranslationKey;
   image: string;
   align: "left" | "right";
 }
 
 interface Agenda2Props {
-  language: "en" | "lao";
+  language: Language;
 }
 
 export default function Agenda2({ language }: Agenda2Props) {
-  const lang = language in translations ? language : "en";
+  const lang: Language = language in translations ? language : "en";
 
   const agenda: AgendaItem[] = [
-    { time: "3:00 PM", eventKey:  "HAE_KEAY_PROCESSION", image: "./image/car.png", align: "right" },
+    { time: "3:00 PM", eventKey: "HAE_KEAY_PROCESSION", image: "./image/car.png", align: "right" },
     { time: "4:00 PM", eventKey: "WEDDING_CEREMONY", image: "./image/ring.png", align: "left" },
     { time: "5:00 PM", eventKey: "APPETIZERS", image: "./image/cake.png", align: "right" },
     { time: "6:00 PM", eventKey: "PHOTO_SESSION", image: "./image/photo.png", align: "left" },
@@ -86,7 +89,7 @@ export default function Agenda2({ language }: Agenda2Props) {
             className={`timeline-item ${item.align}`}
             initial={{ opacity: 0, x: item.align === "left" ? -100 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }} // <-- triggers animation every scroll
+            viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.1 }}
             style={{
               display: "flex",

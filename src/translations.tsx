@@ -33,6 +33,9 @@ export const translations = {
  APPETIZERS:" Appetizers",
     PHOTO_SESSION:" Photo Session with Bride & Groom",
     BUFFET_DINNER:" Buffet Dinner",
+     FIRST_DANCE:" First Dance",
+    SOLO_DANCE:" Solo Dance",
+    AFTER_PARTY:" After Party",
   },
   lao: {
     invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
@@ -65,5 +68,8 @@ export const translations = {
     APPETIZERS:" ເຊີນແຂກ ຮັບປະທານ ອາຫານວ່າງ ",
     PHOTO_SESSION:" ຖ່າຍຮູບຮ່ວມກັບ ເຈົ້າບ່າວ ແລະ ເຈົ້າສາວ ",
     BUFFET_DINNER:" ເຊີນແຂກ ຮັບປະທານ ອາຫານຄໍ່າ",
+    FIRST_DANCE:" ການເຕີນລຳຄັ້ນຄັ້ນ",
+    SOLO_DANCE:" ຄູ່ບ່າວສາວເຕັ້ນລໍາ",
+    AFTER_PARTY:" ຫຼັງງານລ້ຽງ",
   }
 };
