@@ -19,15 +19,15 @@ export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
   const { language } = useLanguage();
   const locationRef = useRef<HTMLDivElement>(null);
-  const commentRef = useRef<HTMLDivElement>(null);
+  // const commentRef = useRef<HTMLDivElement>(null);
 
   const scrollToLocation = () => {
     locationRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollTocomment = () => {
-    commentRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  // const scrollTocomment = () => {
+  //   commentRef.current?.scrollIntoView({ behavior: "smooth" });
+  // };
 
   useEffect(() => {
     const timer = setTimeout(() => setShowContent(true), 3000);
@@ -123,7 +123,7 @@ export default function WeddingCard() {
 >
   {translations[language].LocationButton}
 </button>
-<button
+{/* <button
   onClick={scrollTocomment}
   className="btn fw-bold text-white"
   style={{
@@ -141,7 +141,7 @@ export default function WeddingCard() {
   }}
 >
   {translations[language].CommentLocationButton}
-</button>
+</button> */}
 
 
   {/* Date & Address */}
@@ -228,10 +228,10 @@ export default function WeddingCard() {
       <VideoMessage />
 
       {/* === GUESTBOOK === */}
-            <div ref={commentRef}>
+            {/* <div ref={commentRef}> */}
 
       <WeddingGuestbook language={language} />
-</div>
+{/* </div> */}
       {/* === PHOTO ALBUM === */}
       <WeddingAlbum />
       <div className="text-center mt-4 mb-3" style={{ fontSize: "0.9rem", color: "#6c757d" }}>
