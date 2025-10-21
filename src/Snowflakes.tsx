@@ -37,7 +37,7 @@ export default function Snowflakes() {
           id: nextId++,
           top: `${Math.random() * 100}%`,  // top max 15%
           left: `${Math.random() * 90}%`,
-          size: `${15 + Math.random() * 35}px`,
+          size: `${1 + Math.random() * 35}px`,
           opacity: 0,
           src: snowImages[Math.floor(Math.random() * snowImages.length)]
         };

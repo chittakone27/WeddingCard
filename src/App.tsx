@@ -19,9 +19,14 @@ export default function WeddingCard() {
   const [showContent, setShowContent] = useState(false);
   const { language } = useLanguage();
   const locationRef = useRef<HTMLDivElement>(null);
+  const commentRef = useRef<HTMLDivElement>(null);
 
   const scrollToLocation = () => {
     locationRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollTocomment = () => {
+    commentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
@@ -118,6 +123,25 @@ export default function WeddingCard() {
 >
   {translations[language].LocationButton}
 </button>
+<button
+  onClick={scrollTocomment}
+  className="btn fw-bold text-white"
+  style={{
+    background: "linear-gradient(135deg, rgba(232, 32, 132, 1), rgba(255, 105, 180, 1))",
+    borderRadius: "30px",
+    padding: "8px 24px",      // slightly smaller for mobile, still big enough for desktop
+    fontSize: "1rem",          // readable on all devices
+    minWidth: "180px",         // ensures button has consistent width
+    maxWidth: "280px",         // prevents it from being too wide on large screens
+    boxShadow: "0 4px 15px rgba(232, 32, 132, 0.4)",
+    marginTop: "20px",
+    whiteSpace: "normal",      // allows multi-line text if needed
+    textAlign: "center",
+        fontFamily: "Open Sans, phetsarath OT",
+  }}
+>
+  {translations[language].CommentLocationButton}
+</button>
 
 
   {/* Date & Address */}
@@ -200,11 +224,14 @@ export default function WeddingCard() {
       </div>
 
       {/* === VIDEO MESSAGE === */}
+
       <VideoMessage />
 
       {/* === GUESTBOOK === */}
-      <WeddingGuestbook language={language} />
+            <div ref={commentRef}>
 
+      <WeddingGuestbook language={language} />
+</div>
       {/* === PHOTO ALBUM === */}
       <WeddingAlbum />
       <div className="text-center mt-4 mb-3" style={{ fontSize: "0.9rem", color: "#6c757d" }}>
