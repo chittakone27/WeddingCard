@@ -7,99 +7,130 @@ interface BrideSectionProps {
   name: string;
   facebookUrl?: string;
   instagramUrl?: string;
-  language: "en" | "lao"; // add this line
+  language: "en" | "lao";
 }
 
-
-const Bridesection: React.FC<BrideSectionProps> = ({
+const BrideSection: React.FC<BrideSectionProps> = ({
   imageUrl,
   name,
   facebookUrl,
   instagramUrl,
   language,
 }) => {
-  // Fallback to English if language is undefined or not supported
   const lang = language in translations ? language : "en";
 
   return (
     <section
-      className="d-flex justify-content-center align-items-center vh-100"
       style={{
-        backgroundColor: "#fff0f5",
+        width: "100%",
+        minHeight: "100vh",
+        backgroundColor: "#fff0f5", // soft pink tone
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "flex-start",
         fontFamily: "Parisienne, Noto Sans Lao",
+        padding: "40px 0 40px 0",
       }}
     >
-      <div className="position-relative w-100 w-md-75 h-100 d-flex flex-column justify-content-between rounded shadow-lg overflow-hidden">
-        {/* Bride Image */}
+      {/* Title */}
+      <h2
+        style={{
+          fontSize: "3rem",
+          color: "#040404ff",
+          zIndex: 10,
+          fontWeight: "bold",
+          marginBottom: "1rem",
+        }}
+      >
+        {translations[lang].bride}
+      </h2>
+
+      {/* Image */}
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "900px",
+          height: "auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          overflow: "hidden",
+        }}
+      >
         <img
           src={imageUrl}
           alt={name}
-          className="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
-          style={{ opacity: 0.9 }}
-        />
-
-        {/* Top Title */}
-        <h2
-          className="position-relative text-center fw-bold mt-3"
           style={{
-            fontSize: "3rem",
-            color: "#040404ff",
-            zIndex: 10,
-            backgroundColor: "rgba(203, 201, 202, 0.5)",
-            display: "inline-block",
-            padding: "0.2rem 0.6rem",
-            borderRadius: "5px",
+            width: "100%",
+            height: "auto",
+            objectFit: "contain", // keeps full image visible
+            objectPosition: "center",
+          }}
+        />
+      </div>
+
+      {/* Name + Icons */}
+      <div
+        style={{
+          textAlign: "center",
+          marginTop: "0.5rem", // brings text closer to image
+        }}
+      >
+        <p
+          style={{
+            fontSize: "26px",
+            color: "#000",
+            fontFamily: "Open Sans, Noto Sans Lao",
+            marginBottom: "0.5rem",
           }}
         >
-          {translations[lang].bride}
-        </h2>
+          {name}
+        </p>
 
-        {/* Bottom Name + Social Links */}
         <div
-          className="position-relative text-center mb-4"
-          style={{ zIndex: 10 }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: "1.5rem",
+          }}
         >
-          <p
-            className="fs-3 mb-3"
-            style={{
-              fontSize: "2rem",
-              backgroundColor: "rgba(203, 201, 202, 0.5)",
-              display: "inline-block",
-              padding: "0.2rem 0.6rem",
-              borderRadius: "5px",
-              color: "#020202ff",
-              
-            }}
-          >
-            {name}
-          </p>
-
-          <div className="d-flex justify-content-center gap-4 mt-2">
-            {facebookUrl && (
-              <a
-                href={facebookUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#3b5998", fontSize: "1.5rem" }}
-              >
-                <FaFacebook />
-              </a>
-            )}
-            {instagramUrl && (
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#C13584", fontSize: "1.5rem" }}
-              >
-                <FaInstagram />
-              </a>
-            )}
-          </div>
+          {facebookUrl && (
+            <a
+              href={facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#3b5998",
+                fontSize: "clamp(2rem, 5vw, 2.8rem)",
+                transition: "transform 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              <FaFacebook />
+            </a>
+          )}
+          {instagramUrl && (
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: "#C13584",
+                fontSize: "clamp(2rem, 5vw, 2.8rem)",
+                transition: "transform 0.2s ease",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+            >
+              <FaInstagram />
+            </a>
+          )}
         </div>
       </div>
     </section>
   );
 };
 
-export default Bridesection;
+export default BrideSection;
