@@ -62,7 +62,7 @@ export const translations = {
   },
   lao: {
     invitationTitle: "ທ່ານຖືກຮັບເຊີນ ເຂົ້າຮ່ວມງານຂອງພວກເຮົາ!",
-    LocationButton: "ໄປໜ້າ ແຜນທີ່ ສະຖານທີ່ຈັດງານ",
+    LocationButton: "ຄິກໄປໜ້າ ແຜນທີ່ ສະຖານທີ່ຈັດງານ",
     DateTime: "20 ທັນວາ, 2025 | 7 ໂມງແລງ",
     Addrees: "ບ້ານ ຊຳເຄ້, ເມືອງ ໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ",
     agenda: "ວາລະງານ",

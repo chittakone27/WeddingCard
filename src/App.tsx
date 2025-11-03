@@ -66,7 +66,6 @@ export default function WeddingCard() {
     zIndex: 20,
   }}
 >
-  <LanguageSwitcher />
 </div>
 
 
@@ -92,6 +91,8 @@ export default function WeddingCard() {
     objectFit: "contain", // keeps full image visible without cropping
   }}
 />
+  <LanguageSwitcher />
+
         <p
       className="fw-bold mb-1"
       style={{
