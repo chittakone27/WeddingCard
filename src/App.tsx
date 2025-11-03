@@ -62,7 +62,7 @@ export default function WeddingCard() {
 <div
   className="position-absolute start-50 translate-middle-x d-flex flex-wrap justify-content-center"
   style={{
-    top: "3%", // 👈 adjust this percentage to move it higher or lower
+    top: "10%", // 👈 adjust this percentage to move it higher or lower
     zIndex: 20,
   }}
 >
@@ -181,7 +181,7 @@ export default function WeddingCard() {
   imageUrl="./image/groom.jpeg"
   name={translations[language].wen}
   facebookUrl="https://www.facebook.com/chittakone.thammarongsad"
-  instagramUrl="https://instagram.com/johnmichael"
+  instagramUrl="https://www.instagram.com/wen7.myrz?igsh=bXc5cjUxYmRnenZ0&utm_source=qr"
   language={language}
 />
 
@@ -203,7 +203,7 @@ export default function WeddingCard() {
   imageUrl="./image/bride.jpeg"
   name={translations[language].jaeng}
   facebookUrl="https://www.facebook.com/profile.php?id=100002477708470"
-  instagramUrl="https://instagram.com/johnmichael"
+  instagramUrl="https://www.instagram.com/sitdavannnn?igsh=eHEzN3N6Y2s3YTA3&utm_source=qr"
   language={language} // <-- pass current language
 />
 

@@ -79,7 +79,7 @@ const GroomSection: React.FC<GroomSectionProps> = ({
       >
         <p
           style={{
-            fontSize: "26px",
+            fontSize: "24px",
             color: "#000",
             fontFamily: "Open sans, Noto Sans Lao",
             marginBottom: "0.5rem", // small space before icons
@@ -87,7 +87,15 @@ const GroomSection: React.FC<GroomSectionProps> = ({
         >
           {name}
         </p>
-
+ <p
+          style={{
+            fontSize: "24px",
+            color: "#000",
+            fontFamily: "Open sans, Noto Sans Lao",
+            marginBottom: "0.5rem", // small space before icons
+          }}
+        >
+ {translations[lang].owen}        </p>
         <div
           style={{
             display: "flex",

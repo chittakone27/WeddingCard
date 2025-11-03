@@ -24,7 +24,7 @@ export default function Cover() {
   return (
       <div
       style={{
-        backgroundColor: "rgba(251, 252, 252)",
+        backgroundColor: "white",
       backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

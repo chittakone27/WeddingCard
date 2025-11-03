@@ -49,6 +49,8 @@ export default function Agenda2({ language }: Agenda2Props) {
         position: "relative",
         overflow: "hidden",
         padding: "120px 0 100px 0",
+        backgroundColor: "#fff0f5", // soft pink tone
+
         
       }}
     >

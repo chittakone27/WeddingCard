@@ -79,7 +79,7 @@ const BrideSection: React.FC<BrideSectionProps> = ({
       >
         <p
           style={{
-            fontSize: "26px",
+            fontSize: "24px",
             color: "#000",
             fontFamily: "Open Sans, Noto Sans Lao",
             marginBottom: "0.5rem",
@@ -87,6 +87,16 @@ const BrideSection: React.FC<BrideSectionProps> = ({
         >
           {name}
         </p>
+                <p
+          style={{
+            fontSize: "24px",
+            color: "#000",
+            fontFamily: "Open Sans, Noto Sans Lao",
+            marginBottom: "0.5rem",
+          }}
+        >
+{translations[lang].jaeng2}        </p>
+
 
         <div
           style={{

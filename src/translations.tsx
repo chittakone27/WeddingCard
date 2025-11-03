@@ -18,9 +18,9 @@ export const translations = {
     completed: "Completed",
     bride: "Bride",
     groom: "Groom",
-    wen:"Chittakone Thammarongsad",
-    jaeng:"Sitdavan Phonsulikone",
-    SaveTheDate: "Save The Date",
+    wen:"CHITTAKONE THAMMARONGSAD",
+    jaeng:"SITDAVANN PONSULIKONE",
+    SaveTheDate: "SAVE THE DATE",
     Month: "December",
     Weekday:" Saturday ",
     Days:" Days",
@@ -52,8 +52,10 @@ export const translations = {
     minutesAgo: "m ago",
     hoursAgo: "h ago",
     daysAgo: "d ago",
-    credits: "Developed with ❤️ by Chittakone & Sitdavan",
-    CommentLocationButton: "Go To Guestbook"
+    credits: "Developed with ❤️ by CHITTAKONE & SITDAVANN",
+    CommentLocationButton: "Go To Guestbook",
+    owen: "( OWEN )",
+    jaeng2: "( JAENG )",
 
 
   },
@@ -74,7 +76,7 @@ export const translations = {
     groom: "ເຈົ້າບ່າວ",
     wen:"ທ. ຈິດຕະກອນ ທຳມະໂລງຊາດ",
     jaeng:"ນ. ສິດດາວັນ ພົນສຸລິກອນ",
-    SaveTheDate: "ຈອງວັນເດືອນຂອງທ່ານ!",
+    SaveTheDate: "ບັນທຶກວັນສຳຄັນຂອງພວກເຮົາ!",
     Month: "ທັນວາ",
     Weekday:" ວັນເສົາ ",
     Days:" ມື້",
@@ -107,7 +109,10 @@ export const translations = {
     hoursAgo: " ຊົ່ວໂມງ ຜ່ານມາ",
     daysAgo: " ມື້ ຜ່ານມາ",
     credits: "ພັດທະນາຂຶ້ນມາດ້ວຍ ❤️ ຈາກ ທ.ຈິດຕະກອນ & ນ.ສິດດາວັນ",
-    CommentLocationButton: "ໄປໜ້າ ປື້ມເກັບຄຳອວຍພອນ"
+    CommentLocationButton: "ໄປໜ້າ ປື້ມເກັບຄຳອວຍພອນ",
+    owen: "( ໂອເວັ້ນ )",
+    jaeng2: "( ແຈງ )",
+
 
   }
 };
