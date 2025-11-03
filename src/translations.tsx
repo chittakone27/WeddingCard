@@ -37,8 +37,8 @@ export const translations = {
      FIRST_DANCE:" First Dance",
     SOLO_DANCE:" Solo Dance",
     AFTER_PARTY:" After Party",
-    carparkTitle:"Parking",
-    weddingTitle:"Wedding Venue",
+    carparkTitle:"PARKING AREA",
+    weddingTitle:"WEDDING VENUE",
     Addreescarpark:"Samkhe Primary School Field, Xaysetha District, Vientiane Capital ",
     opencarpark:"Open Carpark Map",
     openweddingvanue:"Open Wedding Venue Map",
@@ -56,6 +56,7 @@ export const translations = {
     CommentLocationButton: "Go To Guestbook",
     owen: "( OWEN )",
     jaeng2: "( JAENG )",
+    carparlkNote:"After parking your vehicle at Samkhe Primary School Field, you can use the KOK KOK service we have arranged to enter the venue. Thank you. 😍",
 
 
   },
@@ -112,6 +113,7 @@ export const translations = {
     CommentLocationButton: "ໄປໜ້າ ປື້ມເກັບຄຳອວຍພອນ",
     owen: "( ໂອເວັ້ນ )",
     jaeng2: "( ແຈງ )",
+    carparlkNote:"ຫຼັງຈາກບັນດາທ່ານ ຈອດລົດຂອງທ່ານໄວ້ທີ່ ເດີ່ນໂຮງຮຽນປະຖົມ ບ້ານຊໍາເຄ້ ແລ້ວ ຈາກນັ້ນ ທ່ານສາມາດນຳໃຊ້ລົດ ກ໋ອກກ໋ອກ ທີ່ເຮົາຈັດຕຽມໄວ້ບໍລິການພວກທ່ານເຂົ້າໜ້າງານໄດ້ ຂໍຂອບໃຈ. 😍",
 
 
   }

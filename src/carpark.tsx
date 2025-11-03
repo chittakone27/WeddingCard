@@ -50,10 +50,14 @@ export default function Carpark({ language }: CarparkProps) {
           alt="carpark"
           className="w-100 h-100 object-fit-cover"
         />
+      
       </div>
 
       {/* Location Button */}
       <div className="mt-5">
+          <p>
+          {translations[lang].carparlkNote}
+        </p>
     <a
   href="https://maps.app.goo.gl/jARzuqZPJaJjqYz19"
   target="_blank"
