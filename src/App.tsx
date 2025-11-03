@@ -11,6 +11,7 @@ import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
 import Snowflakes from "./Snowflakes";
 import Cover from "./cover";
+import PaymentImage from "./payment";
 // import Profile from "./profile";
 import WeddingAlbum from "./WeddingAlbum";
 import GroomSection from "./groom";
@@ -227,6 +228,7 @@ export default function WeddingCard() {
       {/* === VIDEO MESSAGE === */}
 
       <VideoMessage />
+      <PaymentImage />
 
       {/* === GUESTBOOK === */}
             {/* <div ref={commentRef}> */}
