@@ -62,7 +62,7 @@ export default function WeddingCard() {
 <div
   className="position-absolute start-50 translate-middle-x d-flex flex-wrap justify-content-center"
   style={{
-    top: "10%", // 👈 adjust this percentage to move it higher or lower
+    top: "5%", // 👈 adjust this percentage to move it higher or lower
     zIndex: 20,
   }}
 >
