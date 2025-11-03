@@ -50,13 +50,13 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, phetsarath OT",}}>
+        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, Noto Sans Lao",}}>
           {translations[lang].SaveTheDate}
         </h2>
 
         <div
           className="bg-light border rounded shadow d-inline-block p-4 p-md-5 mb-5"
-          style={{ fontFamily: "Open sans, phetsarath OT"}}
+          style={{ fontFamily: "Open sans, Noto Sans Lao"}}
         >
           <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem" }}>
             {translations[lang].Month || "December"}
@@ -73,7 +73,7 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
         </div>
 
         {timeLeft ? (
-          <div className="mt-2" style={{fontFamily: "Open Sans, phetsarath OT",
+          <div className="mt-2" style={{fontFamily: "Open Sans, Noto Sans Lao",
  }}>
             <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 }}>
               {translations[lang].CountdownText || "Countdown to the Big Day"}

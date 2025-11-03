@@ -41,7 +41,7 @@ export default function Agenda2({ language }: Agenda2Props) {
   return (
     <div
       style={{
-        backgroundImage: 'url("./image/background.png")',
+        // backgroundImage: 'url("./image/background.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -58,7 +58,7 @@ export default function Agenda2({ language }: Agenda2Props) {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         style={{
-          fontFamily: "Parisienne, phetsarath OT",
+          fontFamily: "Parisienne, Noto Sans Lao",
           fontSize: "clamp(3rem, 6vw, 5rem)",
           fontWeight: "bold",
           color: "#e82084",
@@ -97,7 +97,7 @@ export default function Agenda2({ language }: Agenda2Props) {
               justifyContent: "center",
               position: "relative",
               marginTop: `${sectionSpacing}px`,
-                      fontFamily: "Open Sans, phetsarath OT",
+                      fontFamily: "Open Sans, Noto Sans Lao",
 
             }}
           >

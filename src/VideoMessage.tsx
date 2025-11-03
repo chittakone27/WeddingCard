@@ -2,8 +2,8 @@ export default function VideoMessage() {
   return (
     <div
       style={{
-        backgroundImage: 'url("./image/background.png")',
-        backgroundSize: "cover",
+        // backgroundImage: 'url("./image/background.png")',
+        // backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         minHeight: "100vh",

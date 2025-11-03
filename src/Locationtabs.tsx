@@ -23,7 +23,7 @@ export default function LocationTabs({ language }: LocationTabsProps) {
         paddingTop: "115px",
       }}
     >
-      <div className="text-center mb-10" style={{ fontFamily: "Open Sans, phetsarath ot" }}>
+      <div className="text-center mb-10" style={{ fontFamily: "Open Sans, Noto Sans Lao" }}>
         {/* === Tab Buttons === */}
         <div className="d-flex justify-content-center mb-4">
           <div className="btn-group">

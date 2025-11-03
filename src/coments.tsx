@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { translations } from "./translations"; // use your translation file
+import { translations } from "./translations";
 
 interface GuestMessage {
   id?: number;
@@ -74,41 +74,57 @@ export default function WeddingGuestbook({ language }: WeddingGuestbookProps) {
     const past = new Date(timestamp);
     const diff = Math.floor((now.getTime() - past.getTime()) / 1000);
 
-    if (diff < 60) return `${diff}${lang === "lao" ? translations.lao.Seconds : translations.en.Seconds}`;
-    if (diff < 3600) return `${Math.floor(diff / 60)}${lang === "lao" ? translations.lao.minutesAgo : translations.en.minutesAgo}`;
-    if (diff < 86400) return `${Math.floor(diff / 3600)}${lang === "lao" ? translations.lao.hoursAgo : translations.en.hoursAgo}`;
-    if (diff < 604800) return `${Math.floor(diff / 86400)}${lang === "lao" ? translations.lao.daysAgo : translations.en.daysAgo}`;
+    if (diff < 60) return `${diff}${translations[lang].Seconds}`;
+    if (diff < 3600) return `${Math.floor(diff / 60)}${translations[lang].minutesAgo}`;
+    if (diff < 86400) return `${Math.floor(diff / 3600)}${translations[lang].hoursAgo}`;
+    if (diff < 604800) return `${Math.floor(diff / 86400)}${translations[lang].daysAgo}`;
     return past.toLocaleDateString();
   }
 
   return (
     <div
-      className="min-vh-100 d-flex flex-column align-items-center py-5"
+      className="d-flex flex-column align-items-center justify-content-start py-4 px-3"
       style={{
-        // backgroundImage: 'url("./image/background.png")',
+        minHeight: "100vh",
+        width: "100%",
+        backgroundColor: "#fff8fb",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        fontFamily: "Open sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
+        boxSizing: "border-box",
       }}
     >
       {/* Title */}
       <h3
         className="text-center mb-4"
-        style={{color:"#e82084", fontSize: "clamp(1.8rem, 4vw, 2.2rem)", marginTop: "20px",fontWeight: "600", fontFamily: "Parisienne, phetsarath OT",
-         }}
+        style={{
+          color: "#e82084",
+          fontSize: "clamp(1.8rem, 5vw, 2.4rem)",
+          marginTop: "10px",
+          fontWeight: "600",
+          fontFamily: "Parisienne, Noto Sans Lao",
+        }}
       >
         {translations[lang].guestbookTitle}
       </h3>
 
       {/* Form */}
-      <form className="w-100" style={{ maxWidth: "600px" }} onSubmit={handleSubmit}>
+      <form
+        className="w-100 px-2"
+        style={{ maxWidth: "600px", width: "100%" }}
+        onSubmit={handleSubmit}
+      >
         <input
           type="text"
           className="form-control mb-2"
           placeholder={translations[lang].namePlaceholder || "Your Name"}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={{ borderRadius: "12px", borderColor: "rgba(232,32,132,0.5)" }}
+          style={{
+            borderRadius: "12px",
+            borderColor: "rgba(232,32,132,0.5)",
+            fontSize: "1rem",
+          }}
         />
         <textarea
           className="form-control mb-2"
@@ -116,31 +132,40 @@ export default function WeddingGuestbook({ language }: WeddingGuestbookProps) {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
-          style={{ borderRadius: "12px", borderColor: "rgba(232,32,132,0.5)" }}
+          style={{
+            borderRadius: "12px",
+            borderColor: "rgba(232,32,132,0.5)",
+            fontSize: "1rem",
+          }}
         />
         <div className="d-flex justify-content-center mt-3">
           <button
             type="submit"
-            className="btn btn-gradient px-4 fw-bold"
+            className="btn fw-bold"
             disabled={isLoading}
             style={{
               background: "linear-gradient(135deg, #e82084, #ff69b4)",
               color: "#fff",
               borderRadius: "30px",
               border: "none",
+              padding: "0.6rem 2rem",
+              fontSize: "1rem",
             }}
           >
-            {isLoading ? translations[lang].sendingButton: translations[lang].submitButton}
+            {isLoading
+              ? translations[lang].sendingButton
+              : translations[lang].submitButton}
           </button>
         </div>
       </form>
 
       {/* Messages */}
       <div
-        className="w-100 mt-3"
+        className="w-100 mt-4"
         style={{
           maxWidth: "600px",
-          maxHeight: "65vh",
+          width: "100%",
+          maxHeight: "60vh",
           overflowY: "auto",
           padding: "1rem",
           backgroundColor: "#fff0f5",
@@ -148,17 +173,32 @@ export default function WeddingGuestbook({ language }: WeddingGuestbookProps) {
           boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
         }}
       >
-        {messages.length === 0 && <p className="text-center text-secondary">{translations[lang].noMessages || "No messages yet 😍"}</p>}
+        {messages.length === 0 && (
+          <p className="text-center text-secondary">
+            {translations[lang].noMessages || "No messages yet 😍"}
+          </p>
+        )}
 
         {messages.map((msg, idx) => (
           <div
             key={msg.id || idx}
-            className="card mb-3 fade-in shadow-sm"
-            style={{ borderRadius: "15px", borderColor: "rgba(232,32,132,0.3)" }}
+            className="card mb-3 shadow-sm"
+            style={{
+              borderRadius: "15px",
+              borderColor: "rgba(232,32,132,0.3)",
+            }}
           >
-            <div className="card-body" style={{ backgroundColor: "#fff0f5", textAlign: "left" }}>
-              <p className="mb-1">
-                <strong style={{ color: "#e82084" }}>{msg.name}</strong> : {msg.messages}
+            <div
+              className="card-body"
+              style={{
+                backgroundColor: "#fff0f5",
+                textAlign: "left",
+                wordWrap: "break-word",
+              }}
+            >
+              <p className="mb-1" style={{ fontSize: "0.95rem" }}>
+                <strong style={{ color: "#e82084" }}>{msg.name}</strong>:{" "}
+                {msg.messages}
               </p>
               <div className="text-end">
                 <small className="text-muted">{timeAgo(msg.timestamp)}</small>

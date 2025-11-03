@@ -13,7 +13,7 @@ export default function Carpark({ language }: CarparkProps) {
   return (
     <div
       style={{
-        fontFamily: "Open Sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
         borderRadius: "1rem",
         maxWidth: "100%",
         padding: "2rem 1rem",
@@ -32,7 +32,7 @@ export default function Carpark({ language }: CarparkProps) {
       <p
         className="text-gray-600"
         style={{
-          fontFamily: "boonhome",
+          fontFamily: "Open sans, Noto Sans Lao",
           fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
           lineHeight: 1.5,
         }}
@@ -78,7 +78,7 @@ export default function Carpark({ language }: CarparkProps) {
     minWidth: "200px",
     maxWidth: "300px",
     transition: "transform 0.3s ease, box-shadow 0.3s ease",
-    fontFamily: "Open Sans,phetsarath OT",
+    fontFamily: "Open Sans,Noto Sans Lao",
   }}
 >
   <FmdGoodOutlinedIcon fontSize="small" />

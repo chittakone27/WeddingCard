@@ -48,7 +48,7 @@ export default function WeddingCard() {
   }
 
   return (
-    <div style={{        fontFamily: "Open Sans, phetsarath OT",
+    <div style={{        fontFamily: "Open Sans, Noto Sans Lao",
 }}>
       {/* === COVER SECTION === */}
       <div
@@ -95,7 +95,7 @@ export default function WeddingCard() {
       className="fw-bold mb-1"
       style={{
         color: "black",
-        fontFamily: "Open Sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
         fontSize: "16px",
         
       }}
@@ -118,7 +118,7 @@ export default function WeddingCard() {
     marginTop: "20px",
     whiteSpace: "normal",      // allows multi-line text if needed
     textAlign: "center",
-        fontFamily: "Open Sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
   }}
 >
   {translations[language].LocationButton}
@@ -151,7 +151,7 @@ export default function WeddingCard() {
       className="fw-bold mb-1"
       style={{
         color: "black",
-        fontFamily: "Open Sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
         fontSize: "16px",
         
       }}
@@ -161,7 +161,7 @@ export default function WeddingCard() {
     <p
       style={{
         color: "black",
-        fontFamily: "Open Sans, phetsarath OT",
+        fontFamily: "Open Sans, Noto Sans Lao",
         fontSize: "14px",
       }}
     >
@@ -177,7 +177,7 @@ export default function WeddingCard() {
 
       {/* === GROOM SECTION === */}
 <GroomSection
-  imageUrl="./image/groom.jpg"
+  imageUrl="./image/groom.jpeg"
   name={translations[language].wen}
   facebookUrl="https://www.facebook.com/chittakone.thammarongsad"
   instagramUrl="https://instagram.com/johnmichael"
@@ -199,7 +199,7 @@ export default function WeddingCard() {
 </div>
 
 <Bridesection
-  imageUrl="./image/bride.jpg"
+  imageUrl="./image/bride.jpeg"
   name={translations[language].jaeng}
   facebookUrl="https://www.facebook.com/profile.php?id=100002477708470"
   instagramUrl="https://instagram.com/johnmichael"
@@ -222,6 +222,7 @@ export default function WeddingCard() {
       <div ref={locationRef}>
         <LocationTabs language={language} />
       </div>
+      <WeddingAlbum />
 
       {/* === VIDEO MESSAGE === */}
 
@@ -233,7 +234,6 @@ export default function WeddingCard() {
       <WeddingGuestbook language={language} />
 {/* </div> */}
       {/* === PHOTO ALBUM === */}
-      <WeddingAlbum />
       <div className="text-center mt-4 mb-3" style={{ fontSize: "0.9rem", color: "#6c757d" }}>
   {translations[language].credits}
 </div>

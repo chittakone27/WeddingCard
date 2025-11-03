@@ -7,7 +7,7 @@ export default function LanguageSwitcher() {
   const inactiveBorder = "rgba(255,105,180,0.5)";
 
   return (
-    <div className="text-center mb-4" style={{ fontFamily: "phetsarath ot" }}>
+    <div className="text-center mb-4" style={{ fontFamily: "Open sans ,Noto Sans Lao" }}>
       <div className="d-flex justify-content-center">
         <div className="btn-group">
 

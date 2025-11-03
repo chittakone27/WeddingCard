@@ -11,7 +11,7 @@ export default function WeddingLocation({ language }: WeddingLocationProps) {
   return (
     <div
       className="text-center mb-5"
-      style={{         fontFamily: "Open Sans, phetsarath OT",
+      style={{         fontFamily: "Open Sans, Noto Sans Lao",
  padding: "1rem" }}
     >
       {/* Heading */}
@@ -45,7 +45,7 @@ export default function WeddingLocation({ language }: WeddingLocationProps) {
       {/* Button with Icon */}
       <div className="mt-5">
         <a
-        href="https://maps.app.goo.gl/jARzuqZPJaJjqYz19"
+        href="https://maps.app.goo.gl/6R6pUvvTyGchZi9y9"
   target="_blank"
   rel="noopener noreferrer"
   className="

@@ -26,7 +26,7 @@ const Bridesection: React.FC<BrideSectionProps> = ({
       className="d-flex justify-content-center align-items-center vh-100"
       style={{
         backgroundColor: "#fff0f5",
-        fontFamily: "Parisienne, phetsarath OT",
+        fontFamily: "Parisienne, Noto Sans Lao",
       }}
     >
       <div className="position-relative w-100 w-md-75 h-100 d-flex flex-column justify-content-between rounded shadow-lg overflow-hidden">
