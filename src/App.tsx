@@ -64,8 +64,10 @@ export default function WeddingCard() {
   style={{
     top: "5%", // 👈 adjust this percentage to move it higher or lower
     zIndex: 20,
+    
   }}
 >
+  <LanguageSwitcher />
 </div>
 
 
@@ -91,8 +93,6 @@ export default function WeddingCard() {
     objectFit: "contain", // keeps full image visible without cropping
   }}
 />
-  <LanguageSwitcher />
-
         <p
       className="fw-bold mb-1"
       style={{
