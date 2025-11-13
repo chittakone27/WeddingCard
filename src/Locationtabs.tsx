@@ -17,7 +17,7 @@ export default function LocationTabs({ language }: LocationTabsProps) {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh",
+        // minHeight: "100vh",
         position: "relative",
         overflow: "hidden",
         paddingTop: "115px",
