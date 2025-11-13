@@ -63,7 +63,7 @@ export default function Agenda2({ language }: Agenda2Props) {
           fontFamily: "Parisienne, Noto Sans Lao",
           fontSize: "clamp(3rem, 6vw, 5rem)",
           fontWeight: "bold",
-          color: "#e82084",
+          // color: "#e82084",
           marginBottom: "100px",
         }}
       >

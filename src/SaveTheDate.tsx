@@ -50,7 +50,7 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, Noto Sans Lao",color:"#e82084"}}>
+        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, Noto Sans Lao"}}>
           {translations[lang].SaveTheDate}
         </h2>
 
@@ -58,23 +58,23 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
           className="bg-light border rounded shadow d-inline-block p-4 p-md-5 mb-5"
           style={{ fontFamily: "Open sans, Noto Sans Lao",}}
         >
-          <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem",color:"#e82084" }}>
+          <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem" }}>
             {translations[lang].Month}
           </div>
           <div
             className="fw-bold"
-            style={{ fontSize: "clamp(4rem, 12vw, 6rem)", lineHeight: 1 ,color:"#e82084"}}
+            style={{ fontSize: "clamp(4rem, 12vw, 6rem)", lineHeight: 1 }}
           >
             20
           </div>
-          <div className="text-muted" style={{ fontSize: "1.25rem" ,color:"#e82084"}}>
+          <div className="text-muted" style={{ fontSize: "1.25rem" }}>
             {translations[lang].Weekday}, 2025
           </div>
         </div>
 
         {timeLeft ? (
           <div className="mt-2" style={{fontFamily: "Open Sans, Noto Sans Lao",}}>
-            <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 ,color:"#e82084"}}>
+            <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 }}>
               {translations[lang].CountdownText}
             </h5>
             <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap"   style={{

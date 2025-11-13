@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Agenda2 from "./agenda2";
 import SaveTheDate from "./SaveTheDate";
-import VideoMessage from "./VideoMessage";
+// import VideoMessage from "./VideoMessage";
 import LocationTabs from "./Locationtabs";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "./LanguageContext";
@@ -11,7 +11,7 @@ import { translations } from "./translations";
 import WeddingGuestbook from "./coments";
 import Snowflakes from "./Snowflakes";
 import Cover from "./cover";
-import PaymentImage from "./payment";
+import PaymentImage from "./payment2";
 // import Profile from "./profile";
 import WeddingAlbum from "./WeddingAlbum";
 import GroomSection from "./groom";
@@ -179,7 +179,7 @@ export default function WeddingCard() {
 
       {/* === GROOM SECTION === */}
 <GroomSection
-  imageUrl="./image/groom.jpeg"
+  imageUrl="./image/groom.png"
   name={translations[language].wen}
   facebookUrl="https://www.facebook.com/chittakone.thammarongsad"
   instagramUrl="https://www.instagram.com/wen7.myrz?igsh=bXc5cjUxYmRnenZ0&utm_source=qr"
@@ -201,7 +201,7 @@ export default function WeddingCard() {
 </div>
 
 <Bridesection
-  imageUrl="./image/bride.jpeg"
+  imageUrl="./image/bride.png"
   name={translations[language].jaeng}
   facebookUrl="https://www.facebook.com/profile.php?id=100002477708470"
   instagramUrl="https://www.instagram.com/sitdavannnn?igsh=eHEzN3N6Y2s3YTA3&utm_source=qr"
@@ -228,8 +228,8 @@ export default function WeddingCard() {
 
       {/* === VIDEO MESSAGE === */}
 
-      <VideoMessage />
-      <PaymentImage />
+      {/* <VideoMessage /> */}
+      <PaymentImage language={language} />
 
       {/* === GUESTBOOK === */}
             {/* <div ref={commentRef}> */}

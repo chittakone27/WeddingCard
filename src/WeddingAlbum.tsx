@@ -10,8 +10,18 @@ const TestImage: React.FC = () => {
         padding: "0",           // remove extra spacing
       }}
     >
+         <img
+        src="./image/header.png"
+        alt="Wedding Header"
+        style={{
+          width: "clamp(180px, 50%, 380px)", // responsive scaling
+          height: "auto",
+          marginBottom: "2rem",
+          objectFit: "contain",
+        }}
+      />
       <img
-        src="./image/album.jpeg"
+        src="./image/album.jpg"
         alt="Test Wedding Photo"
         style={{
           width: "100%",        // fills container width
