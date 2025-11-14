@@ -20,14 +20,14 @@ export default function Agenda2({ language }: Agenda2Props) {
   const lang: Language = language in translations ? language : "en";
 
   const agenda: AgendaItem[] = [
-    { time: "3:00 PM", eventKey: "HAE_KEAY_PROCESSION", image: "./image/car.png", align: "right" },
-    { time: "4:00 PM", eventKey: "WEDDING_CEREMONY", image: "./image/ring.png", align: "left" },
-    { time: "5:00 PM", eventKey: "APPETIZERS", image: "./image/cake.png", align: "right" },
-    { time: "6:00 PM", eventKey: "PHOTO_SESSION", image: "./image/photo.png", align: "left" },
-    { time: "8:00 PM", eventKey: "BUFFET_DINNER", image: "./image/dinner.png", align: "right" },
-    { time: "09:00 PM", eventKey: "FIRST_DANCE", image: "./image/music.png", align: "left" },
-    { time: "10:00 PM", eventKey: "SOLO_DANCE", image: "./image/dance.png", align: "right" },
-    { time: "11:00 PM", eventKey: "AFTER_PARTY", image: "./image/party.png", align: "left" },
+{ time: "15:00 PM", eventKey: "HAE_KEAY_PROCESSION", image: "./image/car.png", align: "right" },
+    { time: "15:30 PM", eventKey: "WEDDING_CEREMONY", image: "./image/ring.png", align: "left" },
+    { time: "16:00 PM", eventKey: "APPETIZERS", image: "./image/cake.png", align: "right" },
+    { time: "17:30 PM", eventKey: "PHOTO_SESSION", image: "./image/photo.png", align: "left" },
+    { time: "19:00 PM", eventKey: "BUFFET_DINNER", image: "./image/dinner.png", align: "right" },
+    { time: "20:00 PM", eventKey: "FIRST_DANCE", image: "./image/music.png", align: "left" },
+    { time: "21:00 PM", eventKey: "SOLO_DANCE", image: "./image/dance.png", align: "right" },
+    { time: "21:30 PM", eventKey: "AFTER_PARTY", image: "./image/party.png", align: "left" },
   ];
 
   const imageWidth = 50;
