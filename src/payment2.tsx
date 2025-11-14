@@ -1,5 +1,6 @@
 import React from "react";
-import { translations } from "./translations"; // make sure this exists
+import { translations } from "./translations";
+import { motion } from "framer-motion";
 
 interface PaymentQRProps {
   language: "en" | "lao";
@@ -9,9 +10,9 @@ const PaymentQR: React.FC<PaymentQRProps> = ({ language }) => {
   const lang = language in translations ? language : "en";
 
   const qrList = [
-    { src: "./image/dollar.jpg"},
-    { src: "./image/bath.jpg"},
-    { src: "./image/kip.jpg" }
+    { src: "./image/dollar.jpg" },
+    { src: "./image/bath.jpg" },
+    { src: "./image/kip.jpg" },
   ];
 
   return (
@@ -28,11 +29,12 @@ const PaymentQR: React.FC<PaymentQRProps> = ({ language }) => {
         overflowX: "hidden",
       }}
     >
-      {/* Header Image */}
-   
-
       {/* Title */}
-      <h2
+      <motion.h2
+        initial={{ y: 40, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           fontSize: "clamp(1.5rem, 4vw, 2rem)",
           fontWeight: 600,
@@ -42,7 +44,7 @@ const PaymentQR: React.FC<PaymentQRProps> = ({ language }) => {
         }}
       >
         {translations[lang].paymentTitle}
-      </h2>
+      </motion.h2>
 
       {/* QR Code Grid */}
       <div
@@ -57,7 +59,14 @@ const PaymentQR: React.FC<PaymentQRProps> = ({ language }) => {
         }}
       >
         {qrList.map((qr, index) => (
-          <div key={index} style={{ textAlign: "center" }}>
+          <motion.div
+            key={index}
+            initial={{ y: 30, opacity: 0, scale: 0.95 }}
+            whileInView={{ y: 0, opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
+            viewport={{ once: false, amount: 0.3 }}
+            style={{ textAlign: "center" }}
+          >
             <img
               src={qr.src}
               style={{
@@ -69,10 +78,14 @@ const PaymentQR: React.FC<PaymentQRProps> = ({ language }) => {
                 boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
                 transition: "transform 0.3s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.05)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             />
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

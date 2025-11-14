@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { translations } from "./translations";
+import { motion } from "framer-motion";
 
 interface GroomSectionProps {
   imageUrl: string;
@@ -20,21 +21,25 @@ const GroomSection: React.FC<GroomSectionProps> = ({
   const lang = language in translations ? language : "en";
 
   return (
-  <section
+    <section
       style={{
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#fff0f5", // soft pink tone
+        backgroundColor: "#fff0f5",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
         fontFamily: "Parisienne, Noto Sans Lao",
-        padding: "40px 0 40px 0",
+        padding: "40px 0",
       }}
     >
       {/* Title */}
-      <h2
+      <motion.h2
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           fontSize: "3rem",
           color: "#040404ff",
@@ -44,13 +49,17 @@ const GroomSection: React.FC<GroomSectionProps> = ({
         }}
       >
         {translations[lang].groom}
-      </h2>
+      </motion.h2>
 
       {/* Image */}
-      <div
+      <motion.div
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           width: "100%",
-          maxWidth: "900px", // limits width on large screens
+          maxWidth: "900px",
           height: "auto",
           display: "flex",
           justifyContent: "center",
@@ -68,34 +77,40 @@ const GroomSection: React.FC<GroomSectionProps> = ({
             objectPosition: "center",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Name + Icons */}
-      <div
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           textAlign: "center",
-          marginTop: "0.5rem", // brings name closer to image
+          marginTop: "0.5rem",
         }}
       >
         <p
           style={{
             fontSize: "24px",
             color: "#000",
-            fontFamily: "Open sans, Noto Sans Lao",
-            marginBottom: "0.5rem", // small space before icons
+            fontFamily: "Open Sans, Noto Sans Lao",
+            marginBottom: "0.5rem",
           }}
         >
           {name}
         </p>
- <p
+        <p
           style={{
             fontSize: "24px",
             color: "#000",
-            fontFamily: "Open sans, Noto Sans Lao",
-            marginBottom: "0.5rem", // small space before icons
+            fontFamily: "Open Sans, Noto Sans Lao",
+            marginBottom: "0.5rem",
           }}
         >
- {translations[lang].owen}        </p>
+          {translations[lang].owen}
+        </p>
+
         <div
           style={{
             display: "flex",
@@ -113,8 +128,12 @@ const GroomSection: React.FC<GroomSectionProps> = ({
                 fontSize: "clamp(2rem, 5vw, 2.8rem)",
                 transition: "transform 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.15)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             >
               <FaFacebook />
             </a>
@@ -129,14 +148,18 @@ const GroomSection: React.FC<GroomSectionProps> = ({
                 fontSize: "clamp(2rem, 5vw, 2.8rem)",
                 transition: "transform 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.15)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             >
               <FaInstagram />
             </a>
           )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

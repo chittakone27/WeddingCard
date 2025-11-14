@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { translations } from "./translations";
+import { motion } from "framer-motion";
 
 interface BrideSectionProps {
   imageUrl: string;
@@ -24,17 +25,21 @@ const BrideSection: React.FC<BrideSectionProps> = ({
       style={{
         width: "100%",
         minHeight: "100vh",
-        backgroundColor: "#fff0f5", // soft pink tone
+        backgroundColor: "#fff0f5",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "flex-start",
         fontFamily: "Parisienne, Noto Sans Lao",
-        padding: "40px 0 40px 0",
+        padding: "40px 0",
       }}
     >
       {/* Title */}
-      <h2
+      <motion.h2
+        initial={{ y: 50, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           fontSize: "3rem",
           color: "#040404ff",
@@ -44,10 +49,14 @@ const BrideSection: React.FC<BrideSectionProps> = ({
         }}
       >
         {translations[lang].bride}
-      </h2>
+      </motion.h2>
 
       {/* Image */}
-      <div
+      <motion.div
+        initial={{ y: 60, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           width: "100%",
           maxWidth: "900px",
@@ -64,17 +73,21 @@ const BrideSection: React.FC<BrideSectionProps> = ({
           style={{
             width: "100%",
             height: "auto",
-            objectFit: "contain", // keeps full image visible
+            objectFit: "contain",
             objectPosition: "center",
           }}
         />
-      </div>
+      </motion.div>
 
       {/* Name + Icons */}
-      <div
+      <motion.div
+        initial={{ y: 30, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+        viewport={{ once: false, amount: 0.3 }}
         style={{
           textAlign: "center",
-          marginTop: "0.5rem", // brings text closer to image
+          marginTop: "0.5rem",
         }}
       >
         <p
@@ -87,7 +100,7 @@ const BrideSection: React.FC<BrideSectionProps> = ({
         >
           {name}
         </p>
-                <p
+        <p
           style={{
             fontSize: "24px",
             color: "#000",
@@ -95,8 +108,8 @@ const BrideSection: React.FC<BrideSectionProps> = ({
             marginBottom: "0.5rem",
           }}
         >
-{translations[lang].jaeng2}        </p>
-
+          {translations[lang].jaeng2}
+        </p>
 
         <div
           style={{
@@ -115,8 +128,12 @@ const BrideSection: React.FC<BrideSectionProps> = ({
                 fontSize: "clamp(2rem, 5vw, 2.8rem)",
                 transition: "transform 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.15)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             >
               <FaFacebook />
             </a>
@@ -131,14 +148,18 @@ const BrideSection: React.FC<BrideSectionProps> = ({
                 fontSize: "clamp(2rem, 5vw, 2.8rem)",
                 transition: "transform 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.15)")}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.transform = "scale(1.15)")
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.transform = "scale(1)")
+              }
             >
               <FaInstagram />
             </a>
           )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
