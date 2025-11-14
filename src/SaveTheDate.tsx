@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { translations } from "./translations"; // make sure translations include SaveTheDate
+import { translations } from "./translations";
 
 export const WEDDING_DATE = new Date("2025-12-20T00:00:00");
 
 interface SaveTheDateProps {
-  language: "en" | "lao" 
+  language: "en" | "lao";
 }
 
 function calculateTimeLeft() {
@@ -34,53 +34,90 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
   return (
     <div
       style={{
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        position: "relative",
-        overflow: "hidden",
-        paddingTop: "10vh",
-        paddingBottom: "5vh",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        padding: "2rem",
+        // background: "linear-gradient(to right, #fef9f9, #ffe6f0)", // soft pink gradient
+        fontFamily: "Open Sans, Noto Sans Lao",
       }}
     >
       <motion.div
-        className="text-center container"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        style={{ textAlign: "center" }}
       >
-        <h2 className="mb-4" style={{ fontWeight: "bold" ,fontFamily: "Open sans, Noto Sans Lao"}}>
+        {/* Title */}
+        <h2
+          style={{
+            fontSize: "clamp(2rem, 5vw, 3rem)",
+            fontWeight: "bold",
+            marginBottom: "2rem",
+            color: "#d6336c", // elegant pink
+            textShadow: "1px 1px 2px rgba(0,0,0,0.1)",
+          }}
+        >
           {translations[lang].SaveTheDate}
         </h2>
 
+        {/* Wedding Date Box */}
         <div
-          className="bg-light border rounded shadow d-inline-block p-4 p-md-5 mb-5"
-          style={{ fontFamily: "Open sans, Noto Sans Lao",}}
+          style={{
+            background: "white",
+            borderRadius: "20px",
+            padding: "3rem 2rem",
+            marginBottom: "3rem",
+            boxShadow: "0 8px 25px rgba(0,0,0,0.1)",
+            display: "inline-block",
+          }}
         >
-          <div className="text-uppercase fw-bold text-secondary" style={{ fontSize: "1rem" }}>
+          <div
+            className="text-uppercase fw-bold text-secondary"
+            style={{ fontSize: "1rem", letterSpacing: "1px" }}
+          >
             {translations[lang].Month}
           </div>
           <div
-            className="fw-bold"
-            style={{ fontSize: "clamp(4rem, 12vw, 6rem)", lineHeight: 1 }}
+            style={{
+              fontSize: "clamp(5rem, 12vw, 7rem)",
+              fontWeight: "bold",
+              lineHeight: 1,
+              color: "#d6336c",
+              margin: "0.5rem 0",
+            }}
           >
             20
           </div>
-          <div className="text-muted" style={{ fontSize: "1.25rem" }}>
+          <div style={{ fontSize: "1.25rem", color: "#555" }}>
             {translations[lang].Weekday}, 2025
           </div>
         </div>
 
+        {/* Countdown */}
         {timeLeft ? (
-          <div className="mt-2" style={{fontFamily: "Open Sans, Noto Sans Lao",}}>
-            <h5 className="mb-4" style={{ fontSize: "clamp(1.25rem, 2.5vw, 2rem)", fontWeight: 600 }}>
+          <div>
+            <h5
+              style={{
+                fontSize: "clamp(1.25rem, 2.5vw, 2rem)",
+                fontWeight: 600,
+                marginBottom: "1.5rem",
+                color: "#444",
+              }}
+            >
               {translations[lang].CountdownText}
             </h5>
-            <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap"   style={{
-    transform: "scale(1.3)",
-    transformOrigin: "center", // keeps it centered while scaling
-  }}>
+
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                gap: "1rem",
+                flexWrap: "wrap",
+              }}
+            >
               <CountdownBox label={translations[lang].Days || "Days"} value={timeLeft.days} />
               <CountdownBox label={translations[lang].Hours || "Hours"} value={timeLeft.hours} />
               <CountdownBox label={translations[lang].Minutes || "Minutes"} value={timeLeft.minutes} />
@@ -88,7 +125,14 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
             </div>
           </div>
         ) : (
-          <p className="mt-5 text-success fw-bold" style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}>
+          <p
+            style={{
+              fontSize: "clamp(1.5rem, 3vw, 2rem)",
+              fontWeight: "bold",
+              color: "#28a745",
+              marginTop: "2rem",
+            }}
+          >
             {translations[lang].BigDayText}
           </p>
         )}
@@ -99,18 +143,21 @@ export default function SaveTheDate({ language }: SaveTheDateProps) {
 
 function CountdownBox({ label, value }: { label: string; value: number }) {
   return (
-    <div className="text-center mb-2">
+    <div style={{ textAlign: "center", marginBottom: "1rem" }}>
       <div
-        className="border rounded p-2 bg-white shadow-sm"
         style={{
-          minWidth: "60px",
+          minWidth: "70px",
           maxWidth: "100px",
-          width: "clamp(60px, 15vw, 100px)",
-          fontSize: "clamp(0.8rem, 2vw, 1.2rem)",
+          width: "clamp(70px, 12vw, 100px)",
+          padding: "1rem",
+          borderRadius: "16px",
+          background: "white",
+          boxShadow: "0 6px 18px rgba(0,0,0,0.1)",
+          fontWeight: "bold",
         }}
       >
-        <div className="fw-bold">{value.toString().padStart(2, "0")}</div>
-        <div className="small text-muted">{label}</div>
+        <div style={{ fontSize: "1.5rem", color: "#d6336c" }}>{value.toString().padStart(2, "0")}</div>
+        <div style={{ fontSize: "0.9rem", color: "#666" }}>{label}</div>
       </div>
     </div>
   );
