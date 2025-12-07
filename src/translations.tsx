@@ -36,7 +36,7 @@ export const translations = {
     BUFFET_DINNER:" Buffet Dinner",
      FIRST_DANCE:" First Dance",
     SOLO_DANCE:" Solo Dance",
-    AFTER_PARTY:" After Party",
+    AFTER_PARTY:" Party",
     carparkTitle:"PARKING AREA",
     weddingTitle:"WEDDING VENUE",
     Addreescarpark:"Samkhe Primary School Field, Xaysetha District, Vientiane Capital ",

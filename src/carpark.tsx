@@ -46,7 +46,7 @@ export default function Carpark({ language }: CarparkProps) {
         style={{ maxWidth: "85%", minWidth: "200px" }}
       >
         <img
-          src="./image/carpark.jpg"
+          src="./image/school.jpeg"
           alt="carpark"
           className="w-100 h-100 object-fit-cover"
         />

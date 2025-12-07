@@ -36,7 +36,7 @@ export default function WeddingLocation({ language }: WeddingLocationProps) {
         style={{ maxWidth: "85%", minWidth: "200px" }}
       >
         <img
-          src="./image/carpark.jpg"
+          src="./image/home.jpeg"
           alt="wedding-location"
           className="w-100 h-100 object-fit-cover"
         />
