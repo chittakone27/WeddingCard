@@ -58,16 +58,18 @@ const GroomSection: React.FC<GroomSectionProps> = ({
           overflow: "hidden",
         }}
       >
-        <img
-          src={imageUrl}
-          alt={name}
-          style={{
-            width: "100%",
-            height: "auto",
-            objectFit: "contain",
-            objectPosition: "center",
-          }}
-        />
+     <img
+  src={imageUrl}
+  alt={name}
+  loading="lazy"
+  style={{
+    width: "100%",
+    height: "auto",
+    objectFit: "contain",
+    objectPosition: "center",
+  }}
+/>
+
       </div>
 
       {/* Name + Icons */}

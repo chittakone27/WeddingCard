@@ -59,15 +59,17 @@ const BrideSection: React.FC<BrideSectionProps> = ({
         }}
       >
         <img
-          src={imageUrl}
-          alt={name}
-          style={{
-            width: "100%",
-            height: "auto",
-            objectFit: "contain", // keeps full image visible
-            objectPosition: "center",
-          }}
-        />
+  src={imageUrl}
+  alt={name}
+  loading="lazy"
+  style={{
+    width: "100%",
+    height: "auto",
+    objectFit: "contain",
+    objectPosition: "center",
+  }}
+/>
+
       </div>
 
       {/* Name + Icons */}
