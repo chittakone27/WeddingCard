@@ -179,7 +179,7 @@ export default function WeddingCard() {
 
       {/* === GROOM SECTION === */}
 <GroomSection
-  imageUrl="./image/groom.png"
+  imageUrl="./image/groom.jpg"
   name={translations[language].wen}
   facebookUrl="https://www.facebook.com/chittakone.thammarongsad"
   instagramUrl="https://www.instagram.com/wen7.myrz?igsh=bXc5cjUxYmRnenZ0&utm_source=qr"
@@ -201,7 +201,7 @@ export default function WeddingCard() {
 </div>
 
 <Bridesection
-  imageUrl="./image/bride.png"
+  imageUrl="./image/bride.jpg"
   name={translations[language].jaeng}
   facebookUrl="https://www.facebook.com/profile.php?id=100002477708470"
   instagramUrl="https://www.instagram.com/sitdavannnn?igsh=eHEzN3N6Y2s3YTA3&utm_source=qr"
