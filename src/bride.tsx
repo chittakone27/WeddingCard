@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { translations } from "./translations";
 
@@ -17,6 +17,8 @@ const BrideSection: React.FC<BrideSectionProps> = ({
   instagramUrl,
   language,
 }) => {
+    const [loading, setLoading] = useState(true);
+
   const lang = language in translations ? language : "en";
 
   return (
@@ -58,17 +60,18 @@ const BrideSection: React.FC<BrideSectionProps> = ({
           overflow: "hidden",
         }}
       >
-        <img
+<img
   src={imageUrl}
   alt={name}
-  loading="lazy"
   style={{
     width: "100%",
     height: "auto",
-    objectFit: "contain",
-    objectPosition: "center",
+    filter: loading ? "blur(20px)" : "none",
+    transition: "filter 0.3s ease",
   }}
+  onLoad={() => setLoading(false)}
 />
+
 
       </div>
 

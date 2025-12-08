@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { translations } from "./translations";
 
@@ -9,7 +9,6 @@ interface GroomSectionProps {
   instagramUrl?: string;
   language: "en" | "lao";
 }
-
 const GroomSection: React.FC<GroomSectionProps> = ({
   imageUrl,
   name,
@@ -17,6 +16,8 @@ const GroomSection: React.FC<GroomSectionProps> = ({
   instagramUrl,
   language,
 }) => {
+    const [loading, setLoading] = useState(true);
+
   const lang = language in translations ? language : "en";
 
   return (
@@ -58,17 +59,18 @@ const GroomSection: React.FC<GroomSectionProps> = ({
           overflow: "hidden",
         }}
       >
-     <img
+<img
   src={imageUrl}
   alt={name}
-  loading="lazy"
   style={{
     width: "100%",
     height: "auto",
-    objectFit: "contain",
-    objectPosition: "center",
+    filter: loading ? "blur(20px)" : "none",
+    transition: "filter 0.3s ease",
   }}
+  onLoad={() => setLoading(false)}
 />
+
 
       </div>
 
